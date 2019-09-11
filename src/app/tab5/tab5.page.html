@@ -1,0 +1,128 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>프로필</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="profile">
+    <ion-card no-margin *ngFor="let profile of profiles">
+      <ion-card-content>
+          <!--
+          <img src="assets/img/profile.png">
+          -->
+          <h2 style="color: white;" class="fw500">{{profile.email}}</h2>
+          <p style="color: white;">기기번호 : {{ profile.device_id }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
+  <ion-segment [(ngModel)]="segment" scrollable>
+    <ion-segment-button value="0"> 
+        기본
+    </ion-segment-button>
+    <ion-segment-button value="1">
+        용기입력
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="segment">
+    <ion-list *ngSwitchCase="0">
+        <ion-list lines="none" class="app-list" mode="md">
+            <ion-item [routerLink]="['/bluetooths']">
+              <ion-icon slot="start" name="bluetooth"></ion-icon>
+              <ion-label>
+                <h2>블루투스 설정</h2>
+              </ion-label>
+            </ion-item>
+            <!--
+            <ion-item [routerLink]="['/bluetooth']">
+              <ion-icon slot="start" name="bluetooth"></ion-icon>
+              <ion-label>
+                <h2>블루투스 찾기</h2>
+              </ion-label>
+            </ion-item>
+            -->
+            <ion-item (click)="changePassword()">
+              <ion-icon slot="start" name="create"></ion-icon>
+              <ion-label>
+                <h2>비밀번호 변경</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item-divider lines="none"></ion-item-divider>
+            <ion-item button (click)="onLoggedout()">
+              <ion-icon slot="start" name="log-out"></ion-icon>
+              <ion-label>
+                <h2>로그아웃</h2>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+    </ion-list>
+    <ion-list *ngSwitchCase="1">
+
+      <div *ngIf="isEditItems" >
+      
+        <ion-list *ngFor="let common of commons">
+          <ion-item class="input-font" >
+              <ion-label fixed>용기질량</ion-label>
+              <ion-label>{{common.mass}}</ion-label>
+              <!--
+              <ion-input type="number" [value]="common.mass" readonly></ion-input>
+              -->
+              <span item-right>g</span>      
+          </ion-item>
+          <ion-item>
+              <ion-label>용기+물</ion-label>
+              <ion-label>{{common.water}}</ion-label>
+              
+              <!--
+              <ion-input type="number" [value]="common.water" readonly></ion-input>
+              -->
+              <span item-right>g</span>
+          </ion-item>
+          <ion-item>
+              <ion-label>용기용적</ion-label>
+              <ion-label>{{common.volume}}</ion-label>
+              
+              <!--
+              <ion-input type="number" [value]="common.volume" readonly></ion-input>
+              -->
+              <span>kPa</span>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div *ngIf="!isEditItems">
+          <ion-list>
+              <form [formGroup]="commonForm">
+                <ion-item class="input-font" >
+                    <ion-label fixed>용기질량</ion-label>
+                    <ion-input type="number" formControlName="mass"></ion-input>
+                    <span item-right>g</span>      
+                </ion-item>
+                <ion-item>
+                    <ion-label>용기+물</ion-label>
+                    <ion-input type="number" formControlName="water"></ion-input>
+                    <span item-right>g</span>
+                </ion-item>
+                <ion-item>
+                    <ion-label>용기용적</ion-label>
+                    <ion-input type="number" formControlName="volume"></ion-input>
+                    <span>kPa</span>
+                </ion-item>
+                <ion-button class="button button-block button-calm ink" data-ink-color="#9DEAFF" data-ink-opacity="1" (click)="onSubmit(commonForm.value)" fill="outline">업데이트</ion-button> 
+              </form>
+          </ion-list>
+      </div>
+
+      <br /><br /><br /><br />
+
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <ion-fab-button color="medium" class="fab" (click)="onEditCloseItems()">
+            <ion-icon name="create" *ngIf="isEditItems"></ion-icon>
+            <ion-icon name="close" *ngIf="!isEditItems"></ion-icon>
+          </ion-fab-button>
+      </ion-fab>
+    </ion-list>
+  </div>
+
+</ion-content>

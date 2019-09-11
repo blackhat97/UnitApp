@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-button fill="clear" (click)="dismiss()">닫기</ion-button>
+    </ion-buttons>
+    <ion-title>공기량측정</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+      <ion-item>
+          <ion-label>용기+콘크리트</ion-label>
+          <ion-input type="number"></ion-input>
+          <span>g</span>
+      </ion-item>
+      <ion-item>
+          <ion-label>용기+콘크리트+물</ion-label>
+          <ion-input type="number"></ion-input>
+          <span>g</span>
+      </ion-item>
+      <ion-item>
+          <ion-label>초기압력</ion-label>
+          <ion-input type="number"></ion-input>
+          <span>kPa</span>
+      </ion-item>
+      <ion-item>
+          <ion-label>평행압력</ion-label>
+          <ion-input type="number"></ion-input>
+          <span>kPa</span>
+      </ion-item>
+      <ion-item>
+          <ion-label>골재수정계수</ion-label>
+          <ion-input type="number"></ion-input>
+          <span>(%)</span>
+      </ion-item>
+    </ion-list>
+    
+    <ion-button expand="full">측정</ion-button>
+    <br />
+    <ion-item>
+        <ion-label>공기량Air</ion-label>
+        <ion-input type="number"></ion-input>
+        <span>(%)</span>
+    </ion-item>
+    
+  </ion-content>
+
+  <ion-footer>
+    <ion-note>용기+골재를 저울에 올리고 적용 버튼을 누르세요.</ion-note>
+  </ion-footer>

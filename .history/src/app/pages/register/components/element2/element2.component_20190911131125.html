@@ -1,0 +1,205 @@
+<ion-content>
+  
+<form #element2Form="ngForm" role="form">
+    <div class="form-group">
+        <ion-list inset>
+          <ion-list-header>
+            <ion-label>
+                단위<br />Unit
+            </ion-label>
+            <ion-label text-right>
+                질량<br />Unit kg/m²
+            </ion-label>
+            <ion-label text-right>
+                밀도<br />Density g/cm²
+            </ion-label>
+          </ion-list-header>
+          <ion-item-divider>
+              <ion-label>
+                  잔골재
+              </ion-label>
+          </ion-item-divider>
+          <ion-item lines="none">
+              <ion-row>
+                  <ion-col>
+                      <ion-label>S1</ion-label>
+                  </ion-col>                
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="s1_unit" (ionChange)="calc($event)" [(ngModel)]="element2.s1_unit"></ion-input>    
+                  </ion-col>
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="s1_density" (ionChange)="calc($event)" [(ngModel)]="element2.s1_density"></ion-input>    
+                  </ion-col>
+              </ion-row>
+          </ion-item>
+          <ion-item lines="none">
+              <ion-row>
+                  <ion-col>
+                      <ion-label>S2</ion-label>
+                  </ion-col>                
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="s2_unit" (ionChange)="calc($event)" [(ngModel)]="element2.s2_unit"></ion-input>    
+                  </ion-col>
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="s2_density" (ionChange)="calc($event)" [(ngModel)]="element2.s2_density"></ion-input>    
+                  </ion-col>
+              </ion-row>
+          </ion-item>
+          <ion-item lines="none">
+              <ion-row>
+                  <ion-col>
+                      <ion-label>S3</ion-label>
+                  </ion-col>                
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="s3_unit" (ionChange)="calc($event)" [(ngModel)]="element2.s3_unit"></ion-input>    
+                  </ion-col>
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="s3_density" (ionChange)="calc($event)" [(ngModel)]="element2.s3_density"></ion-input>    
+                  </ion-col>
+              </ion-row>
+          </ion-item>
+          <ion-item lines="none">
+              <ion-row>
+                  <ion-col>
+                      <ion-label>S</ion-label>
+                  </ion-col>                
+                  <ion-col>
+                      <ion-input type="number" placeholder="0"></ion-input> 
+                  </ion-col>
+                  <ion-col>
+                      <ion-input type="text" placeholder="0.00"></ion-input>    
+                  </ion-col>
+              </ion-row>
+          </ion-item>
+          <ion-item-divider>
+              <ion-label>
+                  굵은골재
+              </ion-label>
+          </ion-item-divider>
+          <ion-item lines="none">
+              <ion-row>
+                  <ion-col>
+                      <ion-label>G1</ion-label>
+                  </ion-col>                
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="g1_unit" (ionChange)="calc($event)" [(ngModel)]="element2.g1_unit"></ion-input>    
+                  </ion-col>
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="g1_density" (ionChange)="calc($event)" [(ngModel)]="element2.g1_density"></ion-input>    
+                  </ion-col>
+              </ion-row>
+          </ion-item>
+          <ion-item lines="none">
+              <ion-row>
+                  <ion-col>
+                      <ion-label>G2</ion-label>
+                  </ion-col>                
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="g2_unit" (ionChange)="calc($event)" [(ngModel)]="element2.g2_unit"></ion-input>    
+                  </ion-col>
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="g2_density" (ionChange)="calc($event)" [(ngModel)]="element2.g2_density"></ion-input>    
+                  </ion-col>
+              </ion-row>
+          </ion-item>
+          <ion-item lines="none">
+              <ion-row>
+                  <ion-col>
+                      <ion-label>G3</ion-label>
+                  </ion-col>                
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="g3_unit" (ionChange)="calc($event)" [(ngModel)]="element2.g3_unit"></ion-input>    
+                  </ion-col>
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="g3_density" (ionChange)="calc($event)" [(ngModel)]="element2.g3_density"></ion-input>    
+                  </ion-col>
+              </ion-row>
+          </ion-item>
+          <ion-item lines="none">
+              <ion-row>
+                  <ion-col>
+                      <ion-label>G</ion-label>
+                  </ion-col>                
+                  <ion-col>
+                      <ion-input type="number" placeholder="0"></ion-input> 
+                  </ion-col>
+                  <ion-col>
+                      <ion-input type="text" placeholder="0.00"></ion-input>    
+                  </ion-col>
+              </ion-row>
+          </ion-item>
+          <ion-item-divider>
+              <ion-label>
+                  혼화제
+              </ion-label>
+          </ion-item-divider>
+          <ion-item lines="none">
+              <ion-row>
+                  <ion-col>
+                      <ion-label>Ad1</ion-label>
+                  </ion-col>                
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="ad1_unit" (ionChange)="calc($event)" [(ngModel)]="element2.ad1_unit"></ion-input>    
+                  </ion-col>
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="ad1_density" (ionChange)="calc($event)" [(ngModel)]="element2.ad1_density"></ion-input>    
+                  </ion-col>
+              </ion-row>
+          </ion-item>
+          <ion-item lines="none">
+              <ion-row>
+                  <ion-col>
+                      <ion-label>Ad2</ion-label>
+                  </ion-col>                
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="ad2_unit" (ionChange)="calc($event)" [(ngModel)]="element2.ad2_unit"></ion-input>    
+                  </ion-col>
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="ad2_density" (ionChange)="calc($event)" [(ngModel)]="element2.ad2_density"></ion-input>    
+                  </ion-col>
+              </ion-row>
+          </ion-item>
+          <ion-item lines="none">
+              <ion-row>
+                  <ion-col>
+                      <ion-label>Ad3</ion-label>
+                  </ion-col>                
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="ad3_unit" (ionChange)="calc($event)" [(ngModel)]="element2.ad3_unit"></ion-input>    
+                  </ion-col>
+                  <ion-col>
+                      <ion-input type="number" placeholder="0" name="ad3_density" (ionChange)="calc($event)" [(ngModel)]="element2.ad3_density"></ion-input>    
+                  </ion-col>
+              </ion-row>
+          </ion-item>
+          <ion-item lines="none">
+              <ion-row>
+                  <ion-col>
+                      <ion-label>Ad</ion-label>
+                  </ion-col>                
+                  <ion-col>
+                      <ion-input type="number" placeholder="0"></ion-input> 
+                  </ion-col>
+                  <ion-col>
+                      <ion-input type="text" placeholder="0.00"></ion-input>    
+                  </ion-col>
+              </ion-row>
+          </ion-item>
+        </ion-list>
+        <ion-item lines="none">
+          <ion-button slot="start" size="medium" shape="round" (click)="goToPrevious(element2Form)">
+              <ion-icon name="arrow-round-back"></ion-icon>
+              이전
+          </ion-button>
+          <ion-button slot="end" size="medium" shape="round" [disabled]="!element2Form.valid" (click)="goToNext(element2Form)">
+              다음
+              <ion-icon name="arrow-round-forward"></ion-icon>
+          </ion-button>
+        </ion-item>
+    </div>
+  </form>
+  <!--
+  <pre>{{ formData | json }}</pre>
+  -->
+  
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "unit-quantity",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
