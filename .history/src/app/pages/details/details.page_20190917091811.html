@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/measure-list"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+        <ion-button (click)="presentActionSheet()">
+            <ion-icon name="more"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    <ion-title>상세보기</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>측정결과</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>용기질량(g)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>용기+물(g)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>용기용적(ml)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>슬럼프(mm)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>온도(°C)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>주수전질량(g)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>주수후질량(g)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>초기압력(kPa)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>평형압력(kPa)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>이론용적(m3)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>단위용적질량(kg/m3)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>공기량(%)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>단위수량(kg/m3)</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-button expand="full">인쇄</ion-button>
+
+</ion-content>

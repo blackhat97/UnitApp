@@ -1,0 +1,363 @@
+<ion-content>
+
+          <ion-card>
+            <ion-card-content>
+                <ion-list inset>
+                    <ion-list-header>
+                      <ion-label>
+                          단위<br />Unit
+                      </ion-label>
+                      <ion-label>
+                          질량<br />Unit kg/m²
+                      </ion-label>
+                      <ion-label>
+                          밀도<br />Density g/cm²
+                      </ion-label>
+                    </ion-list-header>
+                    <ion-item-divider>
+                        <ion-label>
+                            물
+                        </ion-label>
+                    </ion-item-divider>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>W1</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="w1_unit" (ionChange)="calc($event)" [(ngModel)]="element.w1_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="w1_density" (ionChange)="calc($event)" [(ngModel)]="element.w1_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>W2</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="w2_unit" (ionChange)="calc($event)" [(ngModel)]="element.w2_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="w2_density" (ionChange)="calc($event)" [(ngModel)]="element.w2_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>W3</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="w3_unit" (ionChange)="calc($event)" [(ngModel)]="element.w3_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="w3_density" (ionChange)="calc($event)" [(ngModel)]="element.w3_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>W</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" [value]="wUnit" readonly></ion-input> 
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="text" placeholder="0.00" [value]="wDensity" readonly></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item-divider>
+                        <ion-label>
+                            시멘트
+                        </ion-label>
+                    </ion-item-divider>    
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>C1</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="c1_unit" (ionChange)="calc($event)" [(ngModel)]="element.c1_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="c1_density" (ionChange)="calc($event)" [(ngModel)]="element.c1_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>C2</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="c2_unit" (ionChange)="calc($event)" [(ngModel)]="element.c2_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="c2_density" (ionChange)="calc($event)" [(ngModel)]="element.c2_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>C3</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="c3_unit" (ionChange)="calc($event)" [(ngModel)]="element.c3_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="c3_density" (ionChange)="calc($event)" [(ngModel)]="element.c3_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>C</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" [value]="cUnit" readonly></ion-input> 
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="text" placeholder="0.00" [value]="cDensity" readonly></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item-divider>
+                        <ion-label>
+                            광물질 혼화재
+                        </ion-label>
+                    </ion-item-divider> 
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>M.ad1</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="mad1_unit" (ionChange)="calc($event)" [(ngModel)]="element.mad1_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="mad1_density" (ionChange)="calc($event)" [(ngModel)]="element.mad1_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>M.ad2</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="mad2_unit" (ionChange)="calc($event)" [(ngModel)]="element.mad2_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="mad2_density" (ionChange)="calc($event)" [(ngModel)]="element.mad2_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>M.ad3</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="mad3_unit" (ionChange)="calc($event)" [(ngModel)]="element.mad3_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="mad3_density" (ionChange)="calc($event)" [(ngModel)]="element.mad3_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>M.ad</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" [value]="madUnit" readonly></ion-input> 
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="text" placeholder="0.00" [value]="madDensity" readonly></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item-divider>
+                        <ion-label>
+                            잔골재
+                        </ion-label>
+                    </ion-item-divider>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>S1</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="s1_unit" (ionChange)="calc($event)" [(ngModel)]="element2.s1_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="s1_density" (ionChange)="calc($event)" [(ngModel)]="element2.s1_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>S2</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="s2_unit" (ionChange)="calc($event)" [(ngModel)]="element2.s2_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="s2_density" (ionChange)="calc($event)" [(ngModel)]="element2.s2_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>S3</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="s3_unit" (ionChange)="calc($event)" [(ngModel)]="element2.s3_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="s3_density" (ionChange)="calc($event)" [(ngModel)]="element2.s3_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>S</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" [value]="sUnit" readonly></ion-input> 
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="text" placeholder="0.00" [value]="sDensity" readonly></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item-divider>
+                        <ion-label>
+                            굵은골재
+                        </ion-label>
+                    </ion-item-divider>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>G1</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="g1_unit" (ionChange)="calc($event)" [(ngModel)]="element2.g1_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="g1_density" (ionChange)="calc($event)" [(ngModel)]="element2.g1_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>G2</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="g2_unit" (ionChange)="calc($event)" [(ngModel)]="element2.g2_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="g2_density" (ionChange)="calc($event)" [(ngModel)]="element2.g2_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>G3</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="g3_unit" (ionChange)="calc($event)" [(ngModel)]="element2.g3_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="g3_density" (ionChange)="calc($event)" [(ngModel)]="element2.g3_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>G</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" [value]="gUnit" readonly></ion-input> 
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="text" placeholder="0.00" [value]="gDensity" readonly></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item-divider>
+                        <ion-label>
+                            혼화제
+                        </ion-label>
+                    </ion-item-divider>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>Ad1</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="ad1_unit" (ionChange)="calc($event)" [(ngModel)]="element2.ad1_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="ad1_density" (ionChange)="calc($event)" [(ngModel)]="element2.ad1_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>Ad2</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="ad2_unit" (ionChange)="calc($event)" [(ngModel)]="element2.ad2_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="ad2_density" (ionChange)="calc($event)" [(ngModel)]="element2.ad2_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>Ad3</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="ad3_unit" (ionChange)="calc($event)" [(ngModel)]="element2.ad3_unit"></ion-input>    
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" name="ad3_density" (ionChange)="calc($event)" [(ngModel)]="element2.ad3_density"></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col>
+                                <ion-label>Ad</ion-label>
+                            </ion-col>                
+                            <ion-col>
+                                <ion-input type="number" placeholder="0" [value]="adUnit" readonly></ion-input> 
+                            </ion-col>
+                            <ion-col>
+                                <ion-input type="text" placeholder="0.00" [value]="adDensity" readonly></ion-input>    
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                  </ion-list>
+            </ion-card-content>
+          </ion-card>
+          
+</ion-content>
