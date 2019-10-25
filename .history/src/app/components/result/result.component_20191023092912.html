@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-button fill="clear" (click)="dismiss()">닫기</ion-button>
+    </ion-buttons>
+    <ion-title>결과</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <!--
+  <h3>OUTPUT: {{budget}}</h3> 
+    -->
+  <ion-textarea placeholder="타설위치 메모 (최대 20자)"></ion-textarea>
+
+  <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>측정결과</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label>용기질량(g)</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>용기+물(g)</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>용기용적(ml)</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>슬럼프(mm)</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>온도(°C)</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>주수전질량(g)</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>주수후질량(g)</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>초기압력(kPa)</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>평형압력(kPa)</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>이론용적(m3)</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label><b>단위용적질량(kg/m3)</b></ion-label>
+              <ion-input type="number"></ion-input>
+              <span item-right>g</span>
+            </ion-item>
+            <ion-item>
+              <ion-label>공기량(%)</ion-label>
+              <ion-input type="number"></ion-input>
+              <span item-right>g</span>
+            </ion-item>
+            <ion-item>
+              <ion-label>단위수량(kg/m3)</ion-label>
+              <ion-input type="number"></ion-input>
+              <span>kPa</span>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+
+    <!--
+  <ion-list inset>
+    <ion-item class="input-font" >
+        <ion-label fixed>단위용적질량</ion-label>
+        <ion-input type="number"></ion-input>
+        <span item-right>g</span>      
+    </ion-item>
+    <ion-item>
+        <ion-label>공기량Air</ion-label>
+        <ion-input type="number"></ion-input>
+        <span item-right>g</span>
+    </ion-item>
+    <ion-item>
+        <ion-label>단위수량W</ion-label>
+        <ion-input type="number"></ion-input>
+        <span>kPa</span>
+    </ion-item>
+  </ion-list>
+  -->
+
+  
+  <div text-right>
+      <ion-button (click)="openLocalPdf()">인쇄</ion-button>
+      <ion-button (click)="save()">저장</ion-button>    
+  </div>
+  
+
+
+</ion-content>

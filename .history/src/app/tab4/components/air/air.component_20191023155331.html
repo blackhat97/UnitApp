@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-button fill="clear" (click)="dismiss()">닫기</ion-button>
+    </ion-buttons>
+    <ion-title>공기량측정</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="form"> 
+        
+  <ion-list>
+        <ion-row>
+            <ion-col>
+                <ion-item lines="none">
+                    <ion-label>용기+콘크리트</ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item>
+                    <ion-input type="number" placeholder="입력" formControlName="concrete"></ion-input>
+                    <span>g</span>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item lines="none">
+                    <ion-button>적용</ion-button>
+                </ion-item>
+            </ion-col>
+                
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item lines="none">
+                    <ion-label>용기+콘크리트+물</ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item>
+                    <ion-input type="number" placeholder="입력" formControlName="water"></ion-input>
+                    <span>g</span>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item lines="none">
+                    <ion-button>적용</ion-button>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item lines="none">
+                    <ion-label>초기압력</ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item>
+                    <ion-input type="number" placeholder="입력" formControlName="iPressure"></ion-input>
+                    <span>kPa</span>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item lines="none">
+                    <ion-label>평형압력</ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item>
+                    <ion-input type="number" placeholder="입력" formControlName="ePressure"></ion-input>
+                    <span>kPa</span>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item lines="none">
+                    <ion-label>골재수정계수</ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item>
+                    <ion-input type="number" placeholder="입력" formControlName="coefficient"></ion-input>
+                    <span>(%)</span>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        
+    </ion-list>
+    
+    <ion-button expand="full" (click)="calculator()" [disabled]="!form.valid">측정</ion-button>
+    <br />
+    <ion-item>
+        <ion-label>공기량Air</ion-label>
+        <ion-input type="number" [value]="value" readonly></ion-input>
+        <span>(%)</span>
+    </ion-item>
+
+    </form>
+  </ion-content>
+
+  <ion-footer>
+    <ion-note>용기+골재를 저울에 올리고 적용 버튼을 누르세요.</ion-note>
+  </ion-footer>
