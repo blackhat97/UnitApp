@@ -1,0 +1,75 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button fill="clear" (click)="dismiss()">닫기</ion-button>
+      </ion-buttons>
+      <ion-title>
+        기초 관리
+      </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <ion-segment [(ngModel)]="segment" scrollable>
+      <ion-segment-button value="0">
+          사업장
+      </ion-segment-button>
+      <ion-segment-button value="1">
+          계약자
+      </ion-segment-button>
+      <ion-segment-button value="2">
+          현장명
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="segment">
+        <ion-list *ngSwitchCase="0">
+            <ion-item>
+                <ion-input placeholder="사업장 입력" type="text"></ion-input>
+            </ion-item>
+            <ion-button expand="full">추가</ion-button>
+
+            <ion-item-sliding *ngFor="let company of companies">
+              <ion-item>
+                <ion-label>{{company.cname}}</ion-label>
+              </ion-item>
+              <ion-item-options side="end">
+                <ion-item-option color="danger" (click)="deleteAlert(1, company.id)">삭제</ion-item-option>
+              </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+        <ion-list *ngSwitchCase="1">
+
+            <ion-item>
+                <ion-input placeholder="계약자 입력" type="text"></ion-input>
+            </ion-item>
+            <ion-button expand="full">추가</ion-button>
+
+            <ion-item-sliding *ngFor="let contractor of contractors">
+              <ion-item>
+                <ion-label>{{contractor.ct_name}}</ion-label>
+              </ion-item>
+              <ion-item-options side="end">
+                <ion-item-option color="danger" (click)="deleteAlert(2, contractor.id)">삭제</ion-item-option>
+              </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+        <ion-list *ngSwitchCase="2">
+
+            <ion-item>
+                <ion-input placeholder="현장명 입력" type="text"></ion-input>
+            </ion-item>
+            <ion-button expand="full">추가</ion-button>
+
+            <ion-item-sliding *ngFor="let site of sites">
+              <ion-item>
+                <ion-label>{{site.sname}}</ion-label>
+              </ion-item>
+              <ion-item-options side="end">
+                <ion-item-option color="danger" (click)="deleteAlert(3, site.id)">삭제</ion-item-option>
+              </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+      </div>
+
+</ion-content>

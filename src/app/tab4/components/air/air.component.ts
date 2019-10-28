@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { FormulaService } from 'src/app/providers/services/formula.service';
 import { BluetoothService } from 'src/app/providers/providers';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-air',
@@ -10,11 +11,20 @@ import { BluetoothService } from 'src/app/providers/providers';
   styleUrls: ['./air.component.scss']
 })
 export class AirComponent implements OnInit {
+  
+  DEVICEID = environment.device_id;
+  scaleUUID: string;
+  airmeterUUID: string;
 
   form: FormGroup;
   value: string = '';
   footnote: string;
   realtime: string = '0';
+  pressure: number[] = [0, 0];
+  inputs: string[] = ['0', '0'];
+  
+  isConnected = false;
+  private interval = null;
 
   constructor(
     public modalCtrl: ModalController,
@@ -33,6 +43,22 @@ export class AirComponent implements OnInit {
       coefficient: ['', [Validators.required]],
     });
   }
+
+  ngAfterViewInit() {
+    
+    this.interval = setInterval(() => {      
+      this.requestData();
+    }, 1*1000);
+    
+  }
+
+  ionViewWillLeave(){
+    clearInterval(this.interval);
+    this.disconnect().then(() => {
+      console.log('disconnect bluetooth');
+    });
+  }
+
 
   dismiss(data?: any) {
     // using the injected ModalController this page
@@ -55,21 +81,44 @@ export class AirComponent implements OnInit {
     let name = ev.target.name;
     switch(name) {
       case "concrete":
-        this.footnote = "용기+골재를 저울에 올리고 적용 버튼을 누르세요.";
+        this.footnote = "용기+콘크리트를 저울에 올리고 적용 버튼을 누르세요.";
+        this.checkConnection(this.scaleUUID);
         break;
       case "water":
-        this.footnote = "용기+골재를 저울에 올리고 적용 버튼을 누르세요.";
+        this.footnote = "용기+콘크리트+물을 저울에 올리고 적용 버튼을 누르세요.";
+        this.checkConnection(this.scaleUUID);
         break;
       case "iPressure":
         this.footnote = "공기량 시험이 끝나면 측정 버튼을 누르세요.";
+        this.checkConnection(this.scaleUUID);
         break;
       case "ePressure":
         this.footnote = "공기량 시험이 끝나면 측정 버튼을 누르세요.";
+        this.checkConnection(this.scaleUUID);
         break;
       default: 
         this.footnote = "메시지 없음";
     }
 
+  }
+
+  checkConnection(seleccion) {
+    this.disconnect().then(() => {
+      this.bluetooth.deviceConnection(seleccion).then(success => {                  
+        this.isConnected = true;
+      }, fail => {
+        this.isConnected = false;
+      });
+    });
+  }
+
+  disconnect(): Promise<boolean> {
+    return new Promise(result => {
+      this.isConnected = false;
+      this.bluetooth.disconnect().then(response => {
+        result(response);
+      });
+    });
   }
 
   requestData() {
@@ -79,13 +128,20 @@ export class AirComponent implements OnInit {
     data[2] = 0x03;
     this.bluetooth.dataInOuts(data).then((res) => {
       if(res.length == 22) {
-        console.log(res.substring(0, 11));
-        console.log(res.substring(11, 21));
-
+        this.pressure[0] = res.substring(0, 11);
+        this.pressure[1] = res.substring(11, 21);
       } else {
         this.realtime = res.replace(/[^0-9]/g,'');
       }
     });
+  }
+
+  apply() {
+    this.inputs[0] = this.realtime;
+  }
+
+  apply2() {
+    this.inputs[1] = this.realtime;
   }
 
 }

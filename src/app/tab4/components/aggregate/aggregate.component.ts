@@ -3,7 +3,6 @@ import { environment } from './../../../../environments/environment.prod';
 import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { BluetoothService } from 'src/app/providers/providers';
-import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
 import { GetApiService } from 'src/app/providers/services/get-api.service';
 import { FormulaService } from 'src/app/providers/services/formula.service';
@@ -20,9 +19,8 @@ export class AggregateComponent implements OnInit {
   scaleUUID: string;
   airmeterUUID: string;
   pressure: number[] = [0, 0];
+  inputs: string[] = ['0', '0'];
   realtime: string = '0';
-  aggregate1 : string = '0';
-  aggregate2 : string = '0';
 
   isConnected = false;
   private interval = null;
@@ -32,7 +30,6 @@ export class AggregateComponent implements OnInit {
   constructor(
     public modalCtrl: ModalController,
     private bluetooth: BluetoothService,
-    private translate: TranslateService,
     private storage: Storage,
     public getapi: GetApiService,
     private formBuilder: FormBuilder,
@@ -49,20 +46,25 @@ export class AggregateComponent implements OnInit {
     });
   }
 
-  ngAfterViewInit() {
-    
-    this.interval = setInterval(() => {      
-      this.requestData();
-    }, 1*1000);
-    
-  }
-
   ngOnInit() {
     this.form = this.formBuilder.group({
       aggregate: ['', [Validators.required]],
       water: ['', [Validators.required]],
       iPressure: ['', [Validators.required]],
       ePressure: ['', [Validators.required]],
+    });
+  }
+
+  ngAfterViewInit() {
+    this.interval = setInterval(() => {      
+      this.requestData();
+    }, 1*1000);
+  }
+
+  ionViewWillLeave(){
+    clearInterval(this.interval);
+    this.disconnect().then(() => {
+      console.log('disconnect bluetooth');
     });
   }
 
@@ -116,11 +118,11 @@ export class AggregateComponent implements OnInit {
   }
 
   apply() {
-    this.aggregate1 = this.realtime;
+    this.inputs[0] = this.realtime;
   }
 
   apply2() {
-    this.aggregate2 = this.realtime;
+    this.inputs[1] = this.realtime;
   }
   
 
@@ -132,11 +134,6 @@ export class AggregateComponent implements OnInit {
       });
     });
   }
-
-  ionViewWillLeave(){
-    clearInterval(this.interval);
-  }
-
 
   calculator() {
     let aggregate = this.form.controls['aggregate'].value;

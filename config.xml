@@ -3,7 +3,7 @@
     <name>단위수량</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.1.19:8101" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -109,6 +109,5 @@
     </plugin>
     <plugin name="cordova-plugin-file-transfer" spec="1.7.1" />
     <plugin name="cordova-plugin-document-viewer" spec="0.9.11" />
-    <allow-navigation href="http://192.168.1.19:8101" sessionid="4bb23b18" />
     <engine name="android" spec="7.1.4" />
 </widget>

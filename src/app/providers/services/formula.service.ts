@@ -148,7 +148,7 @@ export class FormulaService {
           l20 = this.volumeMass(inputs); // 단위용적 질량
     const l28 = l27*(j10/1000-l26)/Number(l20), //콘크리트 실용적
         l29 = (l28*(1-Number(l19)/100)-j10/1000*(1-b9/100)+l26)/(1/(c10*1000)-1/(f10*1000)); //물의 계량오차
-    let value = (l29+c9)/l28;
+    let value = ((l29+c9)/l28).toFixed(2);
     return value;
  }
 

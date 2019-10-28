@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defalutHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/register']" routerDirection="forward">추가</ion-button>
+    </ion-buttons>
+    <ion-title>배합등록 모두보기</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+      <ion-card *ngFor="let mix of mixs">
+        <ion-card-header>
+          <ion-row>
+            <ion-col size="8">
+              <ion-card-subtitle>{{ mix.mixnum }}</ion-card-subtitle>
+            </ion-col>
+            <ion-col size="4" text-right [ngClass]="{'show-favorite': isFavorite}">
+              <ion-icon name="heart-empty" size="large" class="icon-heart-empty" (click)="toggleFavorite(mix.id)"></ion-icon>
+              <ion-icon name="heart" color="danger" size="large" class="icon-heart" (click)="toggleFavorite(mix.id)"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-card-header>
+        <ion-card-content>
+          <!--
+          <ion-item (click)="movetab2(mix.id)" lines="none" detail>
+          -->
+          <ion-item (click)="presentEditMix(mix.id)" lines="none" detail>          
+              {{ mix.cname }}<br />
+              {{ mix.ct_name }}<br />
+              {{ mix.sname }}<br />
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  
+</ion-content>
