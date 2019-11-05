@@ -2,9 +2,6 @@ import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 import { GetApiService } from '../providers/services/get-api.service';
 import { Storage } from '@ionic/storage';
-import { Router } from '@angular/router';
-import { PostApiService } from '../providers/services/post-api.service';
-import { SupportService } from '../providers/services/support.service';
 
 @Component({
   selector: 'app-tab3',
@@ -18,14 +15,18 @@ export class Tab3Page {
   action = false;
   blank=false;
   items: any;
-  arrays: number[] = [];
+  /*
+  items=[
+    {image:'../../assets/imgs/wishlist/img10.png',title:'Food Blender BLF01 FZ4001',brand:'Smeg',price:'$230',value:1},
+    {image:'../../assets/imgs/wishlist/img11.png',title:'Rice Cooker MB-FZ4001',brand:'Media Global',price:'$290',value:2},
+    {image:'../../assets/imgs/wishlist/img8.png',title:'Food Processor MK-F800',brand:'Panasonic',price:'$230',value:3},
+    {image:'../../assets/imgs/wishlist/img9.png',title:'Air Purifier AM501 Tr3',brand:'Lg Signature',price:'$430',value:4},
+  ]
+  */
 
   constructor(
     public getapi: GetApiService,
     private storage: Storage,
-    public router: Router,
-    private postapi: PostApiService,
-    public support:SupportService,
 
   ) {}
 
@@ -38,28 +39,17 @@ export class Tab3Page {
   }
 
   indexDelete(res){
-    let index=this.items.findIndex(item => item.id===res);
-    this.items[index].id*=-1;    
-
+    let index=this.items.findIndex(item => item.value===res);
+    this.items[index].value*=-1;
+    console.log('ini indes res ',this.items.findIndex(item => item.value===res));
+    console.log('ini indes res ',this.items[index].value);
   }
-
   hapus(){
-    
     this.items=this.items.filter((res)=>{
-      if(res.id < 0) {
-        let id = res.id * -1;
-        this.postapi.updateFavorte(id, {bool: 0}).subscribe(_ => {
-          this.support.presentToast("즐겨찾기에서 해제되었습니다.");
-        });
-      }
-      return res.id>0
+      return res.value>0
     })
     if(this.items.length===0) this.blank=true;
-    
-  }
-
-  movetab2(id) {
-    this.router.navigate( [`/tabs/tab2`, {id: id}]);
+    console.log(this.items);
   }
 
 }

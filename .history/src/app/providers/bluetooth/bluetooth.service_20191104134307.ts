@@ -100,7 +100,7 @@ export class BluetoothService {
 
     return Observable.create(observer => {
       this.bluetoothSerial.isConnected().then((isConnected) => {
-        this.reader = from(this.bluetoothSerial.write(decoder.decode(message))).pipe(mergeMap(() => {
+        this.reader = from(this.bluetoothSerial.write(message)).pipe(mergeMap(() => {
             
             return this.bluetoothSerial.subscribeRawData();
           })).pipe(mergeMap(() => {

@@ -18,9 +18,9 @@
             <ion-col size="8">
               <ion-card-subtitle>{{ mix.mixnum }}</ion-card-subtitle>
             </ion-col>
-            <ion-col size="4" text-right [ngClass]="{'show-favorite': mix.favorites}">
-              <ion-icon name="heart-empty" size="large" class="icon-heart-empty" (click)="toggleFavorite(mix.id, mix.favorites)"></ion-icon>
-              <ion-icon name="heart" color="danger" size="large" class="icon-heart" (click)="toggleFavorite(mix.id, mix.favorites)"></ion-icon>
+            <ion-col size="4" text-right [ngClass]="{'show-favorite': isFavorite[i].favorite}">
+              <ion-icon name="heart-empty" size="large" class="icon-heart-empty" (click)="toggleFavorite(mix.id, isFavorite[i].favorite)"></ion-icon>
+              <ion-icon name="heart" color="danger" size="large" class="icon-heart" (click)="toggleFavorite(mix.id, isFavorite[i].favorite)"></ion-icon>
             </ion-col>
           </ion-row>
         </ion-card-header>

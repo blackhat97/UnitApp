@@ -17,6 +17,7 @@ export class MixListPage implements OnInit {
 
   DEVICEID = environment.device_id;
   mixs: any;
+  isFavorite: boolean[] = [];
 
   constructor(
     public getapi: GetApiService,
@@ -36,19 +37,24 @@ export class MixListPage implements OnInit {
         this.mixs = res;
       });
 
+      this.getapi.favorites(device).subscribe((res) => {
+        this.isFavorite = res;
+        res.forEach(element => {
+          this.isFavorite[element.index] = element.favorites;
+        });
+      });
+
     });
   }
 
   toggleFavorite(id, favorite) {
     
-    let data = {bool: !favorite};
-    /*
+    let data = {};
     if(favorite == false) {
       data = {bool: 1}; 
     } else {
       data = {bool: 0};
     }
-    */
     this.storage.get(this.DEVICEID).then(device => {
       this.postapi.updateFavorte(id, data).subscribe((_) => {
         this.getapi.mixList(device).subscribe((res) => {

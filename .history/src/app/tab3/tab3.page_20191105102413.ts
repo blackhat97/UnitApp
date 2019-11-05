@@ -4,7 +4,6 @@ import { GetApiService } from '../providers/services/get-api.service';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { PostApiService } from '../providers/services/post-api.service';
-import { SupportService } from '../providers/services/support.service';
 
 @Component({
   selector: 'app-tab3',
@@ -25,7 +24,6 @@ export class Tab3Page {
     private storage: Storage,
     public router: Router,
     private postapi: PostApiService,
-    public support:SupportService,
 
   ) {}
 
@@ -47,9 +45,7 @@ export class Tab3Page {
     
     this.items=this.items.filter((res)=>{
       if(res.id < 0) {
-        let id = res.id * -1;
-        this.postapi.updateFavorte(id, {bool: 0}).subscribe(_ => {
-          this.support.presentToast("즐겨찾기에서 해제되었습니다.");
+        this.postapi.updateFavorte(!(res.id), {bool: 0}).subscribe(_ => {
         });
       }
       return res.id>0

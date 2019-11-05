@@ -138,7 +138,6 @@ export class DetailsPage implements OnInit {
     공기량(%)         | ${this.results[0].result_air}\n
     단위수량(kg/m3)    | ${this.results[0].result_quantity}`;
     */
-   
    let message = `날씨, 단위수량, 단위용적질량`;
 
     this.bluetooth.dataInOut(message).subscribe(data => {

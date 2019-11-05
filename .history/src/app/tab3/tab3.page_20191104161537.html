@@ -21,7 +21,7 @@
           
           <div class="image">
             <ion-item no-padding lines="none" no-margin *ngIf="action">
-              <ion-checkbox [value]="item.id" (ionChange)="indexDelete(item.id)"></ion-checkbox>
+              <ion-checkbox (ionChange)="indexDelete(item.id)"></ion-checkbox>
             </ion-item>
           </div>
           <ion-card-content (click)="movetab2(item.id)" routerDirection="forward">

@@ -21,10 +21,10 @@
           
           <div class="image">
             <ion-item no-padding lines="none" no-margin *ngIf="action">
-              <ion-checkbox [value]="item.id" (ionChange)="indexDelete(item.id)"></ion-checkbox>
+              <ion-checkbox [value]="item.favorites" (ionChange)="indexDelete(item.id)"></ion-checkbox>
             </ion-item>
           </div>
-          <ion-card-content (click)="movetab2(item.id)" routerDirection="forward">
+          <ion-card-content routerLink="/tabs/tab2" routerDirection="forward">
             <ion-text color="dark"><h2>{{item.mixnum}}</h2></ion-text>
             <p><ion-text color="medium">{{item.cname}}</ion-text></p>
             <p><ion-text color="medium">{{item.ct_name}}</ion-text></p>

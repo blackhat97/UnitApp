@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
 import { GetApiService } from 'src/app/providers/services/get-api.service';
 import { environment } from 'src/environments/environment.prod';
 import { Storage } from '@ionic/storage';
-import { PostApiService } from 'src/app/providers/services/post-api.service';
 
 @Component({
   selector: 'app-mix-list',
@@ -17,6 +16,7 @@ export class MixListPage implements OnInit {
 
   DEVICEID = environment.device_id;
   mixs: any;
+  isFavorite: boolean[] = [];
 
   constructor(
     public getapi: GetApiService,
@@ -24,7 +24,7 @@ export class MixListPage implements OnInit {
     public router: Router,
     private favorite: FavoriteService,
     public modalCtrl: ModalController,
-    private postapi: PostApiService,
+
   ) { }
 
   ngOnInit() {
@@ -39,24 +39,9 @@ export class MixListPage implements OnInit {
     });
   }
 
-  toggleFavorite(id, favorite) {
-    
-    let data = {bool: !favorite};
-    /*
-    if(favorite == false) {
-      data = {bool: 1}; 
-    } else {
-      data = {bool: 0};
-    }
-    */
-    this.storage.get(this.DEVICEID).then(device => {
-      this.postapi.updateFavorte(id, data).subscribe((_) => {
-        this.getapi.mixList(device).subscribe((res) => {
-          this.mixs = res;
-        });
-      });
-    });
+  toggleFavorite(id) {
 
+    console.log(id);
     /*
     if (this.favorite.hasFavorite(id)) {
       this.favorite.removeFavorite(id);

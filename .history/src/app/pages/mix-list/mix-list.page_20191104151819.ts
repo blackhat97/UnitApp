@@ -41,14 +41,12 @@ export class MixListPage implements OnInit {
 
   toggleFavorite(id, favorite) {
     
-    let data = {bool: !favorite};
-    /*
+    let data = {};
     if(favorite == false) {
       data = {bool: 1}; 
     } else {
       data = {bool: 0};
     }
-    */
     this.storage.get(this.DEVICEID).then(device => {
       this.postapi.updateFavorte(id, data).subscribe((_) => {
         this.getapi.mixList(device).subscribe((res) => {
