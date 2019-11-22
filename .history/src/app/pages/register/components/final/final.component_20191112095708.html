@@ -1,0 +1,316 @@
+<ion-content>
+    <!--
+    <pre>{{ formData | json }}</pre>
+    -->
+    <ion-card>
+        <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col  size="6">
+                        <div>
+                        시방배합
+                        </div>
+                    </ion-col>
+                    <ion-col size="3">
+                        <div>
+                        질량
+                        </div>
+                    </ion-col>
+                    <ion-col size="3">
+                        <div>
+                        밀도
+                        </div>
+                    </ion-col>
+                </ion-row>
+    
+                <ion-row>
+                    <ion-col>
+                        물
+                    </ion-col>
+                    <ion-col>
+                        (W1)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.w1_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.w1_density }}</ion-label>
+                    </ion-col>
+                    </ion-row>
+                    <ion-row>
+                    <ion-col>
+                    </ion-col>
+                    <ion-col>
+                        (W2)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.w2_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.w2_density }}</ion-label>
+                    </ion-col>
+                    </ion-row>
+                    <ion-row>
+                    <ion-col>
+                    </ion-col>
+                    <ion-col>
+                        <div>
+                        (W3)
+                        </div>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.w3_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.w3_density }}</ion-label>
+                    </ion-col>
+                </ion-row>
+    
+                <ion-row>
+                    <ion-col>
+                        시멘트
+                    </ion-col>
+                    <ion-col>
+                        (C1)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.c1_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.c1_density }}</ion-label>
+                    </ion-col>
+                    </ion-row>
+                    <ion-row>
+                    <ion-col>
+                    </ion-col>
+                    <ion-col>
+                        (C2)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.c2_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.c2_density }}</ion-label>
+                    </ion-col>
+                    </ion-row>
+                    <ion-row>
+                    <ion-col>
+                    </ion-col>
+                    <ion-col>
+                        <div>
+                        (C3)
+                        </div>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.c3_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.c3_density }}</ion-label>
+                    </ion-col>
+                </ion-row>
+    
+                <ion-row>
+                    <ion-col>
+                        광물질
+                    </ion-col>
+                    <ion-col>
+                        (m.ad1)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.mad1_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.mad1_density }}</ion-label>
+                    </ion-col>
+                    </ion-row>
+                    <ion-row>
+                    <ion-col>
+                        혼화재
+                    </ion-col>
+                    <ion-col>
+                        (m.ad2)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.mad2_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.mad2_density }}</ion-label>
+                    </ion-col>
+                    </ion-row>
+                    <ion-row>
+                    <ion-col>
+                    </ion-col>
+                    <ion-col>
+                        <div>
+                        (m.ad3)
+                        </div>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.mad3_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.mad3_density }}</ion-label>
+                    </ion-col>
+                </ion-row>
+    
+                <ion-row>
+                    <ion-col>
+                        잔골재
+                    </ion-col>
+                    <ion-col>
+                        (S1)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.s1_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.s1_density }}</ion-label>
+                    </ion-col>
+                    </ion-row>
+                    <ion-row>
+                    <ion-col>
+                    </ion-col>
+                    <ion-col>
+                        (S2)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.s2_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.s2_density }}</ion-label>
+                    </ion-col>
+                    </ion-row>
+                    <ion-row>
+                    <ion-col>
+                    </ion-col>
+                    <ion-col>
+                        (S3)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.s3_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.s3_density }}</ion-label>
+                    </ion-col>
+                </ion-row>
+    
+                <ion-row>
+                    <ion-col>
+                        굵은골재
+                    </ion-col>
+                    <ion-col>
+                        (G1)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.g1_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.g1_density }}</ion-label>
+                    </ion-col>
+                    </ion-row>
+                    <ion-row>
+                    <ion-col>
+                    </ion-col>
+                    <ion-col>
+                        (G2)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.g2_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.g2_density }}</ion-label>
+                    </ion-col>
+                    </ion-row>
+                    <ion-row>
+                    <ion-col>
+                    </ion-col>
+                    <ion-col>
+                        (G3)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.g3_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.g3_density }}</ion-label>
+                    </ion-col>
+                </ion-row>
+    
+                <ion-row>
+                    <ion-col>
+                        혼화재
+                    </ion-col>
+                    <ion-col>
+                        (AD1)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.ad1_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.ad1_density }}</ion-label>
+                    </ion-col>
+                    </ion-row>
+                    <ion-row>
+                    <ion-col>
+                    </ion-col>
+                    <ion-col>
+                        (AD2)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.ad2_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.ad2_density }}</ion-label>
+                    </ion-col>
+                    </ion-row>
+                    <ion-row>
+                    <ion-col>
+                    </ion-col>
+                    <ion-col>
+                        (AD3)
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.ad3_unit }}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                        <ion-label>{{ formData.ad3_density }}</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>목표공기량</ion-col>
+                    <ion-col>
+                        {{ formData.air }}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>골재수정계수</ion-col>
+                    <ion-col>
+                        {{ formData.aggregate }}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>이론용적</ion-col>
+                    <ion-col>
+                        {{ formData.volume }}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>시멘트 습윤밀도</ion-col>
+                    <ion-col>
+                        {{ formData.wet }}
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-item lines="none">
+        <ion-button slot="start" size="medium" shape="round" (click)="goToPrevious()">
+            <ion-icon name="arrow-round-back"></ion-icon>
+            이전
+        </ion-button>
+        <ion-button color="tertiary" slot="end" size="medium" shape="round" (click)="checkConfirm()">
+            <ion-icon name="send"></ion-icon>
+            제출
+        </ion-button>
+    </ion-item>     
+</ion-content>

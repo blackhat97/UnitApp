@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/tab5"></ion-back-button>
+    </ion-buttons>
+    <ion-title>블루투스 설정</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list lines="full"  *ngFor="let uuid of uuids">
+        <ion-item button (click)="checkConnection(uuid.printer_uuid)">
+          <ion-text>
+            <h3>프린터 블루투스</h3>
+            <p>{{ "BLUETOOTH.ID" | translate }}: {{uuid.printer_uuid}}</p>
+          </ion-text>
+        </ion-item>
+        <ion-item button (click)="checkConnection(uuid.scale_uuid)">
+          <ion-text>
+            <h3>저울 블루투스</h3>
+            <p>{{ "BLUETOOTH.ID" | translate }}: {{uuid.scale_uuid}}</p>
+          </ion-text>
+        </ion-item>
+        <ion-item button (click)="checkConnection(uuid.airmeter_uuid)">
+          <ion-text>
+            <h3>AirMeter 블루투스</h3>
+            <p>{{ "BLUETOOTH.ID" | translate }}: {{uuid.airmeter_uuid}}</p>
+          </ion-text>
+        </ion-item>
+      </ion-list>
+
+      <ion-item>
+        <ion-label>저울 실시간</ion-label>
+        <ion-input type="text" readonly [(ngModel)]="realtime"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>AirMeter 초기압력</ion-label>
+        <ion-input type="text" readonly [value]="pressure[0]" placeholder="초기압력"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>AirMeter 평형압력</ion-label>
+        <ion-input type="text" readonly [value]="pressure[1]" placeholder="초기압력"></ion-input>
+      </ion-item>
+
+      <form (ngSubmit)="sendMessage(message);">
+          <ion-item>
+            <ion-textarea type="text" placeholder="프린터 메시지 입력" [(ngModel)]="message" name="message"></ion-textarea>
+          </ion-item>
+          <ion-row>
+            <ion-col>
+              <ion-button expand="block" color="dark" (click)="disconnect()" [disabled]="!isConnected">
+                {{ "DISCONNECT" | translate }}
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button expand="block" type="submit" [disabled]="!isConnected">
+                {{ "SEND" | translate }}
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+
+        <ion-botton (click)="test()">dfdfdf</ion-botton>
+
+</ion-content>
