@@ -21,10 +21,12 @@
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
     "@auth0/angular-jwt": "^3.0.0",
+    "@ionic-native/android-permissions": "^5.18.0",
     "@ionic-native/app-update": "^5.12.0",
     "@ionic-native/app-version": "^5.12.0",
     "@ionic-native/bluetooth-serial": "^5.12.0",
     "@ionic-native/core": "^5.0.0",
+    "@ionic-native/deeplinks": "^5.17.1",
     "@ionic-native/document-viewer": "^5.0.0",
     "@ionic-native/file": "^5.0.0",
     "@ionic-native/file-opener": "^5.0.0",
@@ -40,6 +42,7 @@
     "@swimlane/ngx-datatable": "^15.0.2",
     "buffer": "^5.4.3",
     "cordova-android": "7.1.4",
+    "cordova-plugin-android-permissions": "1.0.2",
     "cordova-plugin-app-update": "2.0.2",
     "cordova-plugin-app-version": "0.1.9",
     "cordova-plugin-appversion": "^1.0.0",
@@ -61,6 +64,7 @@
     "escpos-image-processor": "^1.0.8",
     "iconv": "^2.3.5",
     "iconv-lite": "^0.5.0",
+    "ionic-plugin-deeplinks": "1.0.20",
     "jschardet": "^2.1.1",
     "moment": "^2.24.0",
     "rxjs": "~6.5.1",
@@ -114,7 +118,8 @@
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },
       "cordova-plugin-file-transfer": {},
-      "cordova-plugin-document-viewer": {}
+      "cordova-plugin-document-viewer": {},
+      "cordova-plugin-android-permissions": {}
     },
     "platforms": [
       "android"
