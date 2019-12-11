@@ -1,0 +1,26 @@
+:host {
+    ion-content {
+      //--background: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary))
+      --background: var(--ion-color-tertiary)
+    }
+  }
+  
+
+#rounded {
+    width: 100%;
+    height: 100px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 10px;
+    margin-bottom: 10px;  
+}
+
+#container {
+    width: 300px; 
+    margin-left:auto; 
+    margin-right: auto; 
+}
+
+ion-item {
+    min-height: 4rem; /* <- this can be whatever you need */
+}
