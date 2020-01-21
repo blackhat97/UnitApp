@@ -1,0 +1,52 @@
+
+<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+        pullingIcon="arrow-dropdown" 
+        pullingText="새로고침 중"
+        refreshingSpinner="crescent">
+    </ion-refresher-content>
+</ion-refresher>
+<form #personalForm="ngForm" role="form">
+    <ion-item lines="none" text-center>
+        <ion-button color="light" (click)="doRefresh($event);">
+            <ion-icon name="sync"></ion-icon>
+        </ion-button>
+    </ion-item>
+    <div class="form-group">
+        <ion-list>
+            <ion-item>
+                <ion-label position="floating">배합번호</ion-label>
+                <ion-input required placeholder="입력" name="mixnum" type="text" [(ngModel)]="personal.mixnum"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">사업장</ion-label>
+                <ion-select (ionChange)="ionChange($event)" required placeholder="선택" ok-text="선택" cancel-text="취소" name="company" [(ngModel)]="personal.company">
+                    <ion-select-option [value]="-1">해당없음</ion-select-option>
+                    <ion-select-option [value]="company.id" *ngFor="let company of companies">{{ company.cname }}</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">계약자</ion-label>
+                <ion-select (ionChange)="ionChange($event)" required placeholder="선택" ok-text="선택" cancel-text="취소" name="contractor" [(ngModel)]="personal.contractor">
+                    <ion-select-option [value]="-2">해당없음</ion-select-option>
+                    <ion-select-option [value]="contractor.id" *ngFor="let contractor of contractors">{{ contractor.ct_name }}</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label (ionChange)="ionChange($event)" position="floating">현장명</ion-label>
+                <ion-select required placeholder="선택" ok-text="선택" cancel-text="취소" name="site" [(ngModel)]="personal.site">
+                    <ion-select-option [value]="-3">해당없음</ion-select-option>
+                    <ion-select-option [value]="site.id" *ngFor="let site of sites">{{ site.sname }}</ion-select-option>
+                </ion-select>   
+            </ion-item>
+        </ion-list>
+        <br />
+        <ion-item lines="none">
+            <ion-button slot="end" size="medium" shape="round" [disabled]="!personalForm.valid" (click)="goToNext(personalForm)">
+                다음
+                <ion-icon name="arrow-round-forward"></ion-icon>
+            </ion-button>
+        </ion-item>
+    </div>
+</form>
+
