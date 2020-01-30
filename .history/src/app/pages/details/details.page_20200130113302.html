@@ -1,0 +1,408 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/app/measure-list"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+        <ion-button (click)="presentActionSheet()">
+            <ion-icon name="more"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    
+    <ion-title>상세보기</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngFor="let result of results">
+
+    <ion-card>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-icon name="calendar"></ion-icon>
+            <ion-label>{{ result.datetime | date: 'yyyy-MM-dd hh:mm' }}</ion-label>
+          </ion-item>
+          <ion-item>
+              <ion-icon name="briefcase"></ion-icon>
+              <ion-label>{{ result.cname }}</ion-label>  
+          </ion-item>
+          <ion-item>
+              <ion-icon name="pin"></ion-icon>
+              <ion-label>{{ result.sname }}</ion-label>
+          </ion-item>
+          <ion-item>
+              <ion-icon name="contact"></ion-icon>
+              <ion-label>{{ result.ct_name }}</ion-label>
+          </ion-item>
+          <ion-item>
+              <ion-icon name="clipboard"></ion-icon>
+              <ion-label>{{ result.mixnum }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle>메모</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+            {{ result.memo }}
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col  size="6">
+                <div>
+                  시방배합
+                </div>
+              </ion-col>
+              <ion-col size="3">
+                <div>
+                  질량
+                </div>
+              </ion-col>
+              <ion-col size="3">
+                <div>
+                  밀도
+                </div>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                  물
+              </ion-col>
+              <ion-col>
+                  (W1)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.w1_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.w1_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+              </ion-col>
+              <ion-col>
+                  (W2)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.w2_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.w2_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+              </ion-col>
+              <ion-col>
+                <div>
+                  (W3)
+                </div>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.w3_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.w3_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                  시멘트
+              </ion-col>
+              <ion-col>
+                  (C1)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.c1_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.c1_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+              </ion-col>
+              <ion-col>
+                  (C2)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.c2_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.c2_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+              </ion-col>
+              <ion-col>
+                <div>
+                  (C3)
+                </div>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.c3_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.c3_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                  광물질
+              </ion-col>
+              <ion-col>
+                  (m.ad1)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.mad1_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.mad1_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                  혼화재
+              </ion-col>
+              <ion-col>
+                  (m.ad2)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.mad2_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.mad2_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+              </ion-col>
+              <ion-col>
+                <div>
+                  (m.ad3)
+                </div>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.mad3_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.mad3_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                  잔골재
+              </ion-col>
+              <ion-col>
+                  (S1)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.s1_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.s1_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+              </ion-col>
+              <ion-col>
+                  (S2)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.s2_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.s2_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+              </ion-col>
+              <ion-col>
+                  (S3)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.s3_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.s3_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                  굵은골재
+              </ion-col>
+              <ion-col>
+                  (G1)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.g1_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.g1_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+              </ion-col>
+              <ion-col>
+                  (G2)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.g2_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.g2_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+              </ion-col>
+              <ion-col>
+                  (G3)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.g3_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.g3_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                  혼화재
+              </ion-col>
+              <ion-col>
+                  (AD1)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.ad1_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.ad1_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+              </ion-col>
+              <ion-col>
+                  (AD2)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.ad2_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.ad2_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+              </ion-col>
+              <ion-col>
+                  (AD3)
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.ad3_unit }}</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-label>{{ result.ad3_density }}</ion-label>
+              </ion-col>
+            </ion-row>
+
+          </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>측정결과</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label>용기질량(g)</ion-label>
+            <ion-label text-center>{{ result.common_mass }}</ion-label>
+            <ion-note>g</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>용기+물(g)</ion-label>
+            <ion-label text-center>{{ result.common_water }}</ion-label>
+            <ion-note>g</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>용기용적(ml)</ion-label>
+            <ion-label text-center>{{ result.common_volume }}</ion-label>
+            <ion-note>ml</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>슬럼프(mm)</ion-label>
+            <ion-label text-center>{{ result.input_slump }}</ion-label>
+            <ion-note>mm</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>온도(°C)</ion-label>
+            <ion-label text-center>{{ result.input_temp }}</ion-label>
+            <ion-note>°C</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>주수전질량(g)</ion-label>
+            <ion-label text-center>{{ result.input_before }}</ion-label>
+            <ion-note>g</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>주수후질량(g)</ion-label>
+            <ion-label text-center>{{ result.input_after }}</ion-label>
+            <ion-note>g</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>초기압력(kPa)</ion-label>
+            <ion-label text-center>{{ result.input_i_pressure }}</ion-label>
+            <ion-note>kPa</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>평형압력(kPa)</ion-label>
+            <ion-label text-center>{{ result.input_e_pressure }}</ion-label>
+            <ion-note>kPa</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>이론용적(m³)</ion-label>
+            <ion-label text-center>{{ result.mix_volume / 1000 }}</ion-label>
+            <ion-note>m³</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>단위용적질량(kg/m³)</ion-label>
+            <ion-label text-center>{{ result.result_mass }}</ion-label>
+            <ion-note>kg/m³</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>공기량(%)</ion-label>
+            <ion-label text-center>{{ result.result_air }}</ion-label>
+            <ion-note>%</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>단위수량(kg/m³)</ion-label>
+            <ion-label text-center>{{ result.result_quantity }}</ion-label>
+            <ion-note>kg/m³</ion-note>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    <ion-button expand="full" (click)="prepareToPrint()">인쇄</ion-button>
+  </div>
+
+</ion-content>

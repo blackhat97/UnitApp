@@ -45,13 +45,13 @@ export class ElementComponent implements OnInit {
 
   goToPrevious(form: any) {
     if (this.save(form)) {
-        this.router.navigate(['/register/default']);
+        this.router.navigate(['/app/register/default']);
     }
   }
 
   goToNext(form: any) {
     if (this.save(form)) {
-      this.router.navigate(['/register/element2']);
+      this.router.navigate(['/app/register/element2']);
     }
   }
 

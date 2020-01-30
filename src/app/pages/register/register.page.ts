@@ -61,10 +61,8 @@ export class RegisterPage implements OnInit {
         {
           text: '확인',
           handler: () => {
-            //this.router.navigate(['/mix-list']);
             this.formDataService.resetFormData();
-            //this.location.back();
-            this.navCtrl.navigateBack('/tabs/tab1');
+            this.navCtrl.navigateBack('/app/tabs/tab1');
           }
         }
       ]

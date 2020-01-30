@@ -45,7 +45,7 @@ export class Element2Component implements OnInit {
   goToPrevious(form: any) {
     
     if (this.save(form)) {
-      this.router.navigate(['/register/element']);
+      this.router.navigate(['/app/register/element']);
     }
 
   }
@@ -53,7 +53,7 @@ export class Element2Component implements OnInit {
   goToNext(form: any) {
     
     if(this.save(form)) {
-      this.router.navigate(['/register/percentage']);
+      this.router.navigate(['/app/register/percentage']);
     }
     
 

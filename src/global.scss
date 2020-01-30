@@ -29,9 +29,15 @@
 
 
 //custom css segment
+/*
 ion-segment{
     --color:rgba(255,255,255,0.1) !important;
     --ion-toolbar-color-checked:var(--ion-color-light);
+}
+*/
+ion-segment{
+    --color:rgba(0, 0, 0, 0.7) !important;
+    --ion-toolbar-color-checked:var(--ion-color-dark);
 }
 
 //custom css toolbar

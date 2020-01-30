@@ -7,7 +7,7 @@ const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-            { path: '', redirectTo: '/tabs/tab1', pathMatch: 'full' },
+            { path: '', redirectTo: '/app/tabs/tab1', pathMatch: 'full' },
             {
               path: 'tabs',
               loadChildren: '../tabs/tabs.module#TabsPageModule'

@@ -59,7 +59,7 @@ export class Tab3Page {
   }
 
   movetab2(id) {
-    this.router.navigate( [`/tabs/tab2`, {id: id}]);
+    this.router.navigate( [`/app/tabs/tab2`, {id: id}]);
   }
 
 }

@@ -12,7 +12,7 @@
   
   <ion-content padding>
       <ion-list>
-        <ion-item *ngFor="let result of results" routerLink="/details/{{result.id}}" routerDirection="forward" detail [hidden]="result.hide">
+        <ion-item *ngFor="let result of results" routerLink="/app/details/{{result.id}}" routerDirection="forward" detail [hidden]="result.hide">
           {{ result.mixnum }}<br />
           {{ result.cname }}<br />
           {{ result.ct_name }}<br />

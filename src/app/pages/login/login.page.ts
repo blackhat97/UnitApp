@@ -71,13 +71,13 @@ export class LoginPage implements OnInit {
 
   onLogin() {
     this.authService.login(this.credentialsForm.value).subscribe((res) => {
-      this.navCtrl.navigateRoot('/tabs/tab1');
+      this.navCtrl.navigateRoot('/app/tabs/tab1');
     });
   }
 
   onAdmin() {
     this.authService.admin(this.adminForm.value).subscribe((res) => {
-      this.navCtrl.navigateRoot('/tabs/tab1');
+      this.navCtrl.navigateRoot('/app/tabs/tab1');
     });
   }
   

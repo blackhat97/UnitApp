@@ -44,7 +44,7 @@ export class TimeSeriesPage implements OnInit {
   onActivate(event) {
     if(event.type == 'click') {
       let row = event.row;
-      this.router.navigate( [`/details/${row.id}`]);
+      this.router.navigate( [`/app/details/${row.id}`]);
 
     }
   }
