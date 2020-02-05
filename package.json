@@ -32,6 +32,7 @@
     "@ionic-native/file-opener": "^5.0.0",
     "@ionic-native/file-transfer": "^5.0.0",
     "@ionic-native/network": "^5.12.0",
+    "@ionic-native/screen-orientation": "^5.20.0",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.20.0",
     "@ionic/angular": "^4.7.1",
@@ -55,10 +56,12 @@
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.1.3",
     "cordova-plugin-network-information": "^2.0.2",
+    "cordova-plugin-screen-orientation": "3.0.2",
     "cordova-plugin-splashscreen": "^5.0.3",
     "cordova-plugin-statusbar": "^2.4.3",
     "cordova-plugin-whitelist": "^1.3.4",
     "core-js": "^2.5.4",
+    "es6-promise-plugin": "4.2.2",
     "esc-pos-encoder-ionic": "^1.0.1",
     "escpos": "^2.5.2",
     "escpos-image-processor": "^1.0.8",
@@ -119,7 +122,8 @@
       },
       "cordova-plugin-file-transfer": {},
       "cordova-plugin-document-viewer": {},
-      "cordova-plugin-android-permissions": {}
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-screen-orientation": {}
     },
     "platforms": [
       "android"

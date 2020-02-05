@@ -1,0 +1,22 @@
+
+
+  ion-content{
+
+    .content{
+
+      .register-card {
+        display: flex;
+        flex-direction: column;
+        height: 150px !important;
+        width: 140px !important;
+        background: #fff;  
+      }
+
+      .complete-card {
+        display: flex;
+        flex-direction: column;
+        height: 200px !important;
+        background: #fff;  
+      }
+    }
+  }
