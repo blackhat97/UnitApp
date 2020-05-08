@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-title text-center>{{"UNIT_CONTENT_OF_WATER" | translate}}</ion-title>
+    </ion-item>
+    <ion-segment [(ngModel)]="segment">
+      <ion-segment-button value="login">
+        <ion-label>{{"LOGIN" | translate}}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="admin">
+        <ion-label>{{"ADMIN" | translate}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content no-padding>
+  <div [ngSwitch]="segment">
+    <div *ngSwitchCase="'login'">
+      <ion-card padding-bottom padding-end>
+          <form [formGroup]="credentialsForm" class="list-form">
+            <ion-item lines="inset">
+              <ion-label position="floating" color="medium">{{"EMAIL" | translate}}</ion-label>
+              <ion-input type="email" formControlName="email"></ion-input>
+            </ion-item>
+            <ion-item lines="inset">
+              <ion-label position="floating" color="medium">{{"PASS" | translate}}</ion-label>
+              <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+          </form>
+      </ion-card>
+      <ion-card>
+        <ion-item lines="none" [routerLink]="['/forgot']" routerDirection="forward">
+          <ion-icon name="contact" slot="start" color="medium"></ion-icon>
+          {{"FORGOT_YOUR_PASS" | translate}}
+        </ion-item>
+        <ion-item lines="none" (click)="onSignup()">
+          <ion-icon name="create" slot="start" color="medium"></ion-icon><strong>계정만들기</strong>
+        </ion-item>
+      </ion-card>
+    </div>
+    <div *ngSwitchCase="'admin'">
+      <ion-card padding-bottom padding-end>
+        <form [formGroup]="adminForm">
+          <ion-item lines="inset">
+            <ion-label position="floating" color="medium">이메일</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+          <ion-item lines="inset">
+            <ion-label position="floating" color="medium">패스워드</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+          <ion-item lines="inset">
+            <ion-label position="floating" color="medium">기기번호</ion-label>
+            <ion-input type="number" formControlName="device"></ion-input>
+          </ion-item>
+        </form>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-item color="primary" *ngIf="segment=='login'">
+    <ion-button slot="end" (click)="onLogin()" [disabled]="!credentialsForm.valid">
+      <ion-text color="light">로그인</ion-text>
+    </ion-button>
+  </ion-item>
+  <ion-item color="primary" *ngIf="segment=='admin'">
+    <ion-button slot="end" (click)="onAdmin()" [disabled]="!adminForm.valid">
+      <ion-text color="light">관리자 로그인</ion-text>
+    </ion-button>
+  </ion-item>
+</ion-footer>

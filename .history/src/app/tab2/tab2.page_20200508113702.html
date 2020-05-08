@@ -1,0 +1,144 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{ "MEASURE" | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+      <div *ngIf="!isMix">
+        <ion-card [routerLink]="['/app/mix-list']">
+          <ion-list>
+              <ion-item>
+                  <ion-label>{{ "JOB_NAME" | translate }}</ion-label>
+                  <ion-input placeholder="{{ 'CHOOSE' | translate }}"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>{{ "CONTRACTOR" | translate }}</ion-label>
+                  <ion-input placeholder="{{ 'CHOOSE' | translate }}"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>현장명</ion-label>
+                <ion-input placeholder="{{ 'CHOOSE' | translate }}"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>배합번호</ion-label>
+                <ion-input placeholder="{{ 'CHOOSE' | translate }}"></ion-input>
+              </ion-item> 
+          </ion-list>
+        </ion-card>
+            <ion-list (click)="chooseAlert()">
+              <ion-item-divider>
+                입력 데이터
+              </ion-item-divider>
+              <ion-item>
+                <ion-label>슬럼프</ion-label>
+                <ion-input placeholder="(mm)" type="number"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>콘크리트 온도</ion-label>
+                <ion-input placeholder="(°C)" type="number"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>용기+콘크리트</ion-label>
+                <ion-input placeholder="(g)" type="number"></ion-input>
+                <ion-button>적용</ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-label>용기+콘크리트+물</ion-label>
+                <ion-input placeholder="(g)" type="number"></ion-input>
+                <ion-button>적용</ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-label>초기압력</ion-label>
+                <ion-input placeholder="(kPa)" type="number"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>평형압력</ion-label>
+                <ion-input placeholder="(kPa)" type="number"></ion-input>
+              </ion-item>
+              <ion-item-divider>
+                  실시간
+              </ion-item-divider>
+              <ion-item lines="none">
+                  <ion-label style="text-align: center; color: rgb(56, 128, 255); font-size: 3em;"><b>g</b></ion-label>
+              </ion-item>
+            </ion-list>          
+      </div>
+
+      <div *ngIf="isMix">
+        <ion-card (click)="presentExpand()">
+            <ion-list *ngFor="let mix of mixs">
+                <ion-item>
+                    <ion-label>사업장</ion-label>
+                    <ion-label>{{ mix.cname }}</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-label>계약자</ion-label>
+                    <ion-label>{{ mix.ct_name }}</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>현장명</ion-label>
+                  <ion-label>{{ mix.sname }}</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>배합번호</ion-label>
+                  <ion-label>{{ mix.mixnum }}</ion-label>
+                </ion-item> 
+            </ion-list>
+        </ion-card>
+        
+        <form [formGroup]="form">  
+            <ion-list>
+              <ion-item-divider>
+                입력 데이터
+              </ion-item-divider>
+              <ion-item>
+                <ion-label>슬럼프</ion-label>
+                <ion-input formControlName="slump" placeholder="(mm)" type="number"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>콘크리트 온도</ion-label>
+                <ion-input formControlName="temp" placeholder="(°C)" type="number"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>용기+콘크리트</ion-label>
+                <ion-input name="concrete" (ionFocus)="onEvent($event)" formControlName="concrete" placeholder="(g)" type="number" [value]="inputs[0]"></ion-input>
+                <ion-button (click)="apply()">적용</ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-label>용기+콘크리트+물</ion-label>
+                <ion-input name="water" (ionFocus)="onEvent($event)" formControlName="water" placeholder="(g)" type="number" [value]="inputs[1]" #modelInput2></ion-input>
+                <ion-button (click)="apply2()">적용</ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-label>초기압력</ion-label>
+                <ion-input name="iPressure" (ionFocus)="onEvent($event)" formControlName="iPressure" placeholder="(kPa)" type="text" [value]="pressure[0]" #modelInput3></ion-input>
+              </ion-item> 
+              <ion-item>
+                <ion-label>평형압력</ion-label>
+                <ion-input name="ePressure" (ionFocus)="onEvent($event)" formControlName="ePressure" placeholder="(kPa)" type="text" [value]="pressure[1]"></ion-input>
+              </ion-item>
+              <ion-item-divider>
+                  실시간
+              </ion-item-divider>
+              <ion-item lines="none">
+                  <ion-label style="text-align: center; color: rgb(56, 128, 255); font-size: 3em;"><b>{{realtime}} g</b></ion-label>
+              </ion-item>  
+            </ion-list>
+            <ion-button expand="full" (click)="presentResult()" [disabled]="!form.valid">결과보기</ion-button>
+            <!--
+            <ion-button expand="full" (click)="goOutcome()" [disabled]="!form.valid">결과보기</ion-button>
+            -->
+   
+            
+          </form>
+      </div>
+
+  
+</ion-content>
+
+<ion-footer>
+</ion-footer>
