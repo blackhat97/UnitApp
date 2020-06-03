@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-item lines="none">
+            <ion-buttons slot="end">
+                <ion-button fill="clear" (click)="dismiss()">닫기</ion-button>
+            </ion-buttons>
+            <ion-title>
+                {{"COMPANY_MANAGEMENT" | translate}}
+            </ion-title>
+        </ion-item>
+        <ion-segment [(ngModel)]="segment" scrollable>
+            <ion-segment-button value="0">
+                {{"JOB_NAME" | translate}}
+            </ion-segment-button>
+            <ion-segment-button value="1">
+                {{"CONTRACTOR" | translate}}
+            </ion-segment-button>
+            <ion-segment-button value="2">
+                {{"SITE_NAME" | translate}}
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <div [ngSwitch]="segment">
+        <ion-list *ngSwitchCase="0">
+            <ion-item>
+                <ion-input [(ngModel)]="input1" placeholder="사업장 입력" type="text"></ion-input>
+            </ion-item>
+            <ion-button expand="full" (click)="addCompany()">{{"ADD_NEW" | translate}}</ion-button>
+            <br/>
+            <ion-item *ngFor="let company of companies">
+              <ion-label>{{company.cname}}</ion-label>
+              <ion-button (click)="deleteAlert(1, company.id)" color="light" shape="round" item-end>
+                <ion-icon name="close"></ion-icon>
+              </ion-button>
+            </ion-item>
+        </ion-list>
+        <ion-list *ngSwitchCase="1">
+            <ion-item>
+                <ion-input [(ngModel)]="input2" placeholder="계약자 입력" type="text"></ion-input>
+            </ion-item>
+            <ion-button expand="full" (click)="addContractor()">{{"ADD_NEW" | translate}}</ion-button>
+            <br/>
+            <ion-item *ngFor="let contractor of contractors">
+              <ion-label>{{contractor.ct_name}}</ion-label>
+              <ion-button (click)="deleteAlert(2, contractor.id)" color="light" shape="round" item-end>
+                <ion-icon name="close"></ion-icon>
+              </ion-button>
+            </ion-item>
+        </ion-list>
+        <ion-list *ngSwitchCase="2">
+            <ion-item>
+                <ion-input [(ngModel)]="input3" placeholder="현장명 입력" type="text"></ion-input>
+            </ion-item>
+            <ion-button expand="full" (click)="addSite()">{{"ADD_NEW" | translate}}</ion-button>
+            <br/>
+            <ion-item *ngFor="let site of sites">
+              <ion-label>{{site.sname}}</ion-label>
+              <ion-button (click)="deleteAlert(3, site.id)" color="light" shape="round" item-end>
+                <ion-icon name="close"></ion-icon>
+              </ion-button>
+            </ion-item>
+        </ion-list>
+      </div>
+
+</ion-content>

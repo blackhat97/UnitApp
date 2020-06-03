@@ -1,0 +1,126 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import './theme/ionicstarter.scss';
+
+.footerElement{
+    border-top:1px solid var(--ion-color-backgray);
+    position: fixed;
+    bottom: 0;
+    left:0;
+    right:0;
+}
+
+p,h1,h2,h3,h4,h5{
+    margin:0;
+    padding:0;
+}
+
+ion-item {
+    --ion-item-background: transparent;
+}
+
+//clear padding end item
+ion-item.clearEnd{
+    --ion-safe-area-right:0px !important;
+    --inner-padding-end:0px !important;
+}
+
+//size global
+.sizeMedium{
+    font-size:1.6rem;
+}
+
+//custom css segment
+ion-segment{
+    --color:rgba(255, 255, 255, 0.7) !important;
+    --font-weight: bold;
+    --ion-toolbar-color-checked:var(--ion-color-light);
+}
+
+//ion-card
+ion-card{
+    ion-card-content{
+        background: #fff;
+    }
+    &.sc-ion-card-md-h {
+        box-shadow: 0 2px 4px rgba(var(--ion-color-dark-rgb),.24);
+    }
+}
+
+//custom css toolbar
+ion-toolbar{
+    --background:var(--ion-color-primary);
+    ion-item{
+        --background:var(--ion-color-primary);
+    }
+    ion-title{
+        color:var(--ion-color-light);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    ion-button {
+        color:var(--ion-color-light);
+    }
+}
+
+// Menu user profile
+ion-toolbar.user-profile {
+    .user-avatar {
+      width: 68px;
+      height: 68px;
+    }
+    .item-inner {
+      border-width: 0;
+    }
+}
+
+// custom css buttton
+ion-button{
+    --box-shadow:none;
+    --background:transparent;
+}
+
+.transparent{
+    --background:transparent;
+}
+//size p medium
+.sizePtitle{
+    font-size: 0.95rem;
+}
+
+// custom css slider bullet active 
+.swiper-pagination-bullet-active{
+    --bullet-background-active:#fff;
+}
+
+
+

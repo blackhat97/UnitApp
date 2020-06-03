@@ -65,6 +65,7 @@
     "esc-pos-encoder-ionic": "^1.0.1",
     "escpos": "^2.5.2",
     "escpos-image-processor": "^1.0.8",
+    "fs-extra": "^9.0.0",
     "iconv": "^2.3.5",
     "iconv-lite": "^0.5.0",
     "ionic-plugin-deeplinks": "1.0.20",

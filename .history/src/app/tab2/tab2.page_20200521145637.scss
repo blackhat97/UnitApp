@@ -1,0 +1,25 @@
+/*
+ion-button {
+  background-color: var(--ion-color-slackSub);
+}
+*/
+
+ion-content{
+  position: relative;
+  .measure-card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;  
+  }  
+  .no-scroll .scroll-content{
+    overflow: hidden;
+}
+}
+.g-text {
+  font-size: 2em;
+}
+
+.fixedLabel {
+  min-width: 50% !important;
+  max-width: 50% !important;
+}

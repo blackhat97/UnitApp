@@ -1,0 +1,38 @@
+
+
+  ion-content{
+
+    .ion-item-border {
+      border-radius: 200px !important;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 5px;
+      padding-top: 5px;
+    }
+
+    .content{
+      /*
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 300px;
+      background: url('../../assets/img/404_image.png') no-repeat;
+      background-size: cover;
+      */
+      .register-card {
+        display: flex;
+        flex-direction: column;
+        height: 150px !important;
+        width: 140px !important;
+        background: #ffffff;  
+      }
+
+      .complete-card {
+        display: flex;
+        flex-direction: column;
+        //height: 180px !important;
+        //width: 140px !important;
+        background: #ffffff;  
+      }
+    }
+  }

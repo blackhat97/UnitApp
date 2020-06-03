@@ -1,0 +1,426 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button fill="clear" (click)="dismiss()">{{"CLOSE" | translate}}</ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button fill="clear" (click)="update()">
+            <ion-icon name="sync"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" (click)="delete()">
+            <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>{{"MIX_TABLE" | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <ion-card *ngFor="let element of elements">
+        <ion-card-content>
+                <form [formGroup]="form">  
+                
+            <ion-list inset>
+                <ion-list-header>
+                  <ion-label>
+                    {{"UNIT" | translate}}<br />Unit
+                  </ion-label>
+                  <ion-label>
+                    {{"MASS" | translate}}<br />Unit kg/m³
+                  </ion-label>
+                  <ion-label>
+                    {{"DENSITY" | translate}}<br />Density g/cm³
+                  </ion-label>
+                </ion-list-header>
+                <ion-item-divider>
+                    <ion-label>
+                        {{"WATER" | translate}}
+                    </ion-label>
+                </ion-item-divider>
+                <ion-row center>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">W1</ion-label>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="w1_unit" [value]="element.w1_unit" formControlName="w1_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="w1_density" [value]="element.w1_density" formControlName="w1_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">W2</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="w2_unit" [value]="element.w2_unit" formControlName="w2_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="w2_density" [value]="element.w2_density" formControlName="w2_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">W3</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="w3_unit" [value]="element.w3_unit" formControlName="w3_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="w3_density" [value]="element.w3_density" formControlName="w3_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-item-divider>
+                    <ion-label>
+                        {{"CEMENT" | translate}}
+                    </ion-label>
+                </ion-item-divider>    
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">C1</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="c1_unit" [value]="element.c1_unit" formControlName="c1_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="c1_density" [value]="element.c1_density" formControlName="c1_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">C2</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="c2_unit" [value]="element.c2_unit" formControlName="c2_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="c2_density" [value]="element.c2_density" formControlName="c2_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">C3</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="c3_unit" [value]="element.c3_unit" formControlName="c3_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="c3_density" [value]="element.c3_density" formControlName="c3_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-item-divider>
+                    <ion-label>
+                        {{"MINERAL_ADMIXTURE" | translate}}
+                    </ion-label>
+                </ion-item-divider> 
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">M.ad1</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="mad1_unit" [value]="element.mad1_unit" formControlName="mad1_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="mad1_density" [value]="element.mad1_density" formControlName="mad1_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">M.ad2</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="mad2_unit" [value]="element.mad2_unit" formControlName="mad2_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="mad2_density" [value]="element.mad2_density" formControlName="mad2_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">M.ad3</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="mad3_unit" [value]="element.mad3_unit" formControlName="mad3_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="mad3_density" [value]="element.mad3_density" formControlName="mad3_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-item-divider>
+                    <ion-label>
+                        {{"MINERAL_ADMIXTURE" | translate}}
+                    </ion-label>
+                </ion-item-divider>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">S1</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="s1_unit" [value]="element.s1_unit" formControlName="s1_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="s1_density" [value]="element.s1_density" formControlName="s1_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">S2</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="s2_unit" [value]="element.s2_unit" formControlName="s2_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="s2_density" [value]="element.s2_density" formControlName="s2_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">S3</ion-label>
+                        </ion-item>
+                    </ion-col>           
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="s3_unit" [value]="element.s3_unit" formControlName="s3_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="s3_density" [value]="element.s3_density" formControlName="s3_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-item-divider>
+                    <ion-label>
+                        {{"COARSE_AGGREGATE" | translate}}
+                    </ion-label>
+                </ion-item-divider>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">G1</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="g1_unit" [value]="element.g1_unit" formControlName="g1_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="g1_density" [value]="element.g1_density" formControlName="g1_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">G2</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="g2_unit" [value]="element.g2_unit" formControlName="g2_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="g2_density" [value]="element.g2_density" formControlName="g2_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">G3</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="g3_unit" [value]="element.g3_unit" formControlName="g3_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="g3_density" [value]="element.g3_density" formControlName="g3_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-item-divider>
+                    <ion-label>
+                        {{"ADMIXTURE" | translate}}
+                    </ion-label>
+                </ion-item-divider>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">Ad1</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="ad1_unit" [value]="element.ad1_unit" formControlName="ad1_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="ad1_density" [value]="element.ad1_density" formControlName="ad1_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">Ad2</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="ad2_unit" [value]="element.ad2_unit" formControlName="ad2_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="ad2_density" [value]="element.ad2_density" formControlName="ad2_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label color="medium">Ad3</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="ad3_unit" [value]="element.ad3_unit" formControlName="ad3_unit" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="ad3_density" [value]="element.ad3_density" formControlName="ad3_density" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-item-divider></ion-item-divider>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label>목표공기량(%)</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="air" [value]="element.air" formControlName="air" (ionChange)="change()"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label>골재수정계수(%)</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="aggregate" [value]="element.aggregate" formControlName="aggregate"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label>이론용적(m³)</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="volume" [value]="(element.volume/1000).toFixed(3)" formControlName="volume" readonly></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-label>시멘트 습윤밀도</ion-label>
+                        </ion-item>
+                    </ion-col>                
+                    <ion-col>
+                        <ion-item lines="none">
+                            <ion-input type="number" placeholder="0" name="wet" [value]="element.wet" formControlName="wet"></ion-input>    
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+              </ion-list>
+              <ion-button expand="full" color="slackSub" (click)="movetab2()">측정이동</ion-button>
+            </form>
+        </ion-card-content>
+      </ion-card>
+      
+</ion-content>

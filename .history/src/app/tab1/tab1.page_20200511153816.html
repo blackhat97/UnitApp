@@ -1,0 +1,194 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{ "HOME" | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/app/register']">
+        <ion-icon name="add" style="zoom:1.5;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding color="backgray">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="{{ 'REFRESHING' | translate }}"
+            refreshingSpinner="crescent">
+        </ion-refresher-content>
+    </ion-refresher>
+    
+    <ion-slides class="sliderTop" pager="true" loop="true">
+      <ion-slide>
+        <img src="../../../assets/img/back.png">
+        <div>
+          <h4>공기량 측정</h4>
+          <h5>This course is ideal for the ones studying graphic design or anyone interested</h5>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <img src="../../../assets/img/back.png">
+        <div>
+          <h4>콘크리트 배합</h4>
+          <h5>This course is ideal for the ones studying graphic design or anyone interested</h5>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <img src="../../../assets/img/back.png">
+        <div>
+          <h4>단위수량 체크</h4>
+          <h5>This course is ideal for the ones studying graphic design or anyone interested</h5>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  
+    <ion-item lines="none" class="ion-item-border" margin-top padding-start color="slackSub">
+      <ion-label text-left>{{ "MIX_INPUT" | translate }}</ion-label>
+      <ion-buttons>
+        <ion-button routerLink="/app/mix-list" routerDirection="forward" class="transparent">
+          <ion-text color="light">{{ "MORE" | translate }}</ion-text>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+    <div class="content">
+    <div *ngIf="blankMix">
+      <p>배합등록 항목이 비어있습니다.</p>
+    </div>
+    <ion-slides [options]="sliderOptions" padding-start>
+      <ion-slide *ngFor="let mixRegister of mixRegisters">
+        <ion-card (click)="presentEditMix(mixRegister.id)" class="register-card">
+          <ion-card-header>
+            <ion-card-subtitle>{{ mixRegister.mixnum }}</ion-card-subtitle>  
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ mixRegister.cname }}</p>
+            <p>{{ mixRegister.ct_name }}</p>
+            <p>{{ mixRegister.sname }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+    </div>
+    
+    <ion-item lines="none" margin-top color="slackSub">
+      <ion-label text-left>{{ "COMPLETE" | translate }}</ion-label>
+      <ion-buttons>
+        <ion-button routerLink="/app/complete-list" class="transparent">
+          <ion-text color="light">{{ "MORE" | translate }}</ion-text>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+    <div class="content">
+    <div *ngIf="blankResult">
+      <p>측정완료 항목이 비어있습니다.</p>
+    </div>
+    <div class="list-complete">
+      <ion-row no-padding>
+        <ion-col size="6" no-padding no-margin *ngFor="let result of results">
+          <ion-card class="complete-item" padding no-margin routerLink="/app/details/{{result.id}}" routerDirection="forward">
+            <ion-card-header>
+              <ion-card-subtitle>
+                <ion-icon name="clipboard"></ion-icon>&nbsp;
+                {{ result.mixnum }}
+              </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+                <p float-left>
+                  <ion-icon name="briefcase" color="medium"></ion-icon>&nbsp;
+                  {{ result.cname }}
+                </p>
+                <p float-left>
+                  <ion-icon name="contact" color="medium"></ion-icon>&nbsp;
+                  {{ result.ct_name }}
+                </p>
+                <p float-left>
+                  <ion-icon name="pin" color="medium"></ion-icon>&nbsp;
+                  {{ result.sname }}
+                </p>
+                <h5 float-left>
+                  <ion-icon name="calendar" color="medium"></ion-icon>&nbsp;
+                  {{ result.datetime | date : "yyyy-MM-dd"}}
+                </h5>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div>
+    </div>
+
+
+    <ion-card class="welcome-card">
+      <ion-card-header color="slackSub">
+        <ion-card-subtitle>{{ "CHECK" | translate }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+          <form role="form" [formGroup]="loggerForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                  <ion-list>
+                      <ion-item>
+                        <ion-col>
+                          <ion-label>
+                            <ion-icon name="calendar"></ion-icon>
+                            {{ "START_DATE" | translate }}
+                          </ion-label>
+                          <ion-datetime display-format="MMM DD, YYYY"
+                              monthShortNames="1월, 2월, 3월, 4월, 5월, 6월, 7월, 8월, 9월, 10월, 11월, 12월"
+                              formControlName="start"
+                              [value]="yesterday"
+                              placeholder="월/일/년" done-text="선택" cancel-text="취소"
+                          ></ion-datetime>
+                        </ion-col>
+                        <ion-col>
+                          <ion-label>
+                            <ion-icon name="calendar"></ion-icon>
+                            {{ "END_DATE" | translate }}
+                          </ion-label>
+                          <ion-datetime display-format="MMM DD, YYYY"
+                              monthShortNames="1월, 2월, 3월, 4월, 5월, 6월, 7월, 8월, 9월, 10월, 11월, 12월"  
+                              formControlName="end"
+                              [value]="today"
+                              placeholder="월/일/년" done-text="선택" cancel-text="취소"
+                          ></ion-datetime>
+                        </ion-col>
+                      </ion-item>
+                      <ion-item>
+                          <ion-label stacked>{{ "JOB_NAME" | translate }}</ion-label>
+                          <ion-select placeholder="{{ 'CHOOSE' | translate }}" okText="{{ 'CHOOSE' | translate }}" cancelText="{{ 'CANCEL' | translate }}" formControlName="company">
+                            <ion-select-option [value]="-1">{{ "ALL" | translate }}</ion-select-option>
+                            <ion-select-option [value]="company.id" *ngFor="let company of companies">{{ company.cname }}</ion-select-option>
+                          </ion-select>
+                      </ion-item>
+                      <ion-item>
+                          <ion-label stacked>{{ "CONTRACTOR" | translate }}</ion-label>
+                          <ion-select placeholder="{{ 'CHOOSE' | translate }}" okText="{{ 'CHOOSE' | translate }}" cancelText="{{ 'CANCEL' | translate }}" formControlName="contractor">
+                            <ion-select-option [value]="-1">{{ "ALL" | translate }}</ion-select-option>
+                            <ion-select-option [value]="contractor.id" *ngFor="let contractor of contractors">{{ contractor.ct_name }}</ion-select-option>
+                          </ion-select>
+                      </ion-item>
+                      <ion-item>
+                          <ion-label>{{ "SITE_NAME" | translate }}</ion-label>
+                          <ion-select placeholder="{{ 'CHOOSE' | translate }}" okText="{{ 'CHOOSE' | translate }}" cancelText="{{ 'CANCEL' | translate }}" formControlName="site">
+                            <ion-select-option [value]="-1">{{ "ALL" | translate }}</ion-select-option>
+                            <ion-select-option [value]="site.id" *ngFor="let site of sites">{{ site.sname }}</ion-select-option>
+                          </ion-select>
+                      </ion-item>
+                      <ion-item>
+                          <ion-label>{{ "MIX_NAME" | translate }}</ion-label>
+                          <ion-select placeholder="{{ 'CHOOSE' | translate }}" okText="{{ 'CHOOSE' | translate }}" cancelText="{{ 'CANCEL' | translate }}" formControlName="mixnum">
+                            <ion-select-option [value]="-1">{{ "ALL" | translate }}</ion-select-option>
+                            <ion-select-option [value]="mix.mixnum" *ngFor="let mix of mixs">{{ mix.mixnum }}</ion-select-option>
+                          </ion-select>
+                      </ion-item>
+                  </ion-list>
+                  <ion-button expand="full" type="submit" [disabled]="!loggerForm.valid" color="slackSub">
+                    <ion-icon name="search"></ion-icon>
+                    {{ "CHECK" | translate }}
+                  </ion-button>
+              </div>
+            </form>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>
