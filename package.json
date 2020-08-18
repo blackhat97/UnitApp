@@ -27,7 +27,7 @@
     "@ionic-native/bluetooth-serial": "^5.12.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/deeplinks": "^5.17.1",
-    "@ionic-native/document-viewer": "^5.0.0",
+    "@ionic-native/document-viewer": "^5.27.0",
     "@ionic-native/file": "^5.0.0",
     "@ionic-native/file-opener": "^5.0.0",
     "@ionic-native/file-transfer": "^5.0.0",

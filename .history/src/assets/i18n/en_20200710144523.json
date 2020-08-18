@@ -1,0 +1,216 @@
+{
+    "PRESS_AGAIN_TO_EXIT": "Press again to exit",
+    "BACK_BUTTON_TEXT": "Back",
+    "SEND": "Send",
+    "DISCONNECT": "Disconnect",
+    "BLUETOOTH": {
+        "NAME": "Name",
+        "ID": "ID",
+        "ADDRESS": "Address",
+        "NOT_FOUND": "No bluetooth devices were found make sure it is activated and drag down to search again",
+        "CONNECTED": "Connected to the device",
+        "NOT_CONNECTED": "Bluetooth is not connected",
+        "NOT_DEVICES_FOUND": "No bluetooth devices were found",
+        "NOT_AVAILABLE_IN_THIS_DEVICE": "Bluetooth is not available on this device",
+        "NOT_AVAILABLE": "The bluetooth is not available",
+        "CANNOT_CONNECT": "Unable to connect the bluetooth",
+        "SEARCHING": "Searching bluetooth devices",
+        "ALERTS": {
+            "CONNECT": {
+                "TITLE": "Connect",
+                "MESSAGE": "Connect with this device"
+            },
+            "RECONNECT": {
+                "TITLE": "Reconnect",
+                "MESSAGE": "Connect with this device"
+            }
+        }
+    },
+    "BACK_CLOSE": "Please click BACK again to exit",
+    "HOME": "Home",
+    "MIX_INPUT": "mix input",
+    "COMPLETE": "completed",
+    "MORE": "more",
+    "CHECK": "check",
+    "TIME_SERIES": "time series",
+    "START_DATE": "start date", 
+    "END_DATE": "end date",
+    "JOB_NAME": "Job name",
+    "CONTRACTOR": "contractor",
+    "SITE_NAME": "Site name",
+    "MIX_NAME": "Mix name",
+    "ALL": "all",
+    "CANCEL": "cancel",
+
+    "MEASURE": "measure",
+    "CHOOSE": "choose",
+    "INPUT_DATA": "input data",
+    "VESSEL_PLUS_CONCRETE": "vessel + concrete",
+    "VESSEL_PLUS_CONCRETE_PLUS_WATER": "vessel + concrete + water",
+    "VESSEL+CON": "Vessel + Con.",
+    "VESSEL+CON+W": "Vessel + Con. + W",
+
+    "INITIAL_PRESSURE": "Initial P",
+    "EQUILIBRIUM_PRESSURE": "Equilibrium P",
+    "REALTIME": "realtime",
+    "MIX_INPUT_CHOICE": "choose mix input",
+
+    "FAVORITE": "favorite",
+    "FAVORITE_EMPTY": "Favorite item is empty.",
+
+    "OTHER_MEASURE": "other measure",
+    "AGGREGATE_DENSITY_MEASURE": "aggregate density measure",
+    "AGGREGATE_DENSITY": "aggregate density",
+
+    "AIR_CONTENT_MEASURE": "air content measure",
+    "AGGREGATE_CORRECTION_FACTOR": "Correction Factor of G",
+    "AIR_CONTENT": "Air",
+    "APPLY": "apply",
+    "VESSEL_PLUS_AGGREGATE": "vessel+aggregate",
+    "VESSEL_PLUS_AGGREGATE_PLUS_WATER": "vessel+aggregate+water",
+
+    "AIR_CONTENT_CHECK": "air content check",
+    "CALCULATED_VALUE": "calculated value",
+
+    "SETTING": "setting",
+    "PROFILE": "profile",
+    "VESSEL_INPUT": "vessel input",
+    "BLUETOOTH_SETTING": "bluetooth setting",
+    "CHANGE_PASSWORD": "change password",
+    "LOGOUT": "logout",
+    "VESSEL_MASS": "Vessel mass",
+    "VESSEL_MASS_FILLED_WITH_WATER": "Vessel + Water",
+    "VESSEL_VOLUME": "Vessel Vol.",
+    "VESSEL_INPUT_DATE": "vessel input date",
+
+    "UPDATE": "update",
+    "THE_UPDATING_HAS_BEEN_COMPLETED": "the updating has been completed.",
+
+    "ALERT": "alert",
+    "SAVE": "save",
+    "SAVE_MOVE": "Save and print",
+
+    "DETAILS": {
+        "TITLE": "Output",
+        "PRINTT": "Print it out?",
+        "MEMO": {
+            "UPDATE": "Memo updated",
+            "INPUT": "Memo input"
+        },
+        "DELETE": {
+            "QUESTION": "Delete this result?",
+            "DONE": "Deleted successfully."
+        }
+    },
+    "PLEASE_REGISTER_THE_MIX_TABLE_FIRST": "Mix table",
+    "MASS": "M.",
+    "DENSITY": "D.",
+    "WATER": "water",
+    "CEMENT": "cement",
+    "MINERAL_ADMIXTURE": "mineral admixture",
+    "FINE_AGGREGATE": "fine aggregate",
+    "COARSE_AGGREGATE": "coarse aggregate",
+    "ADMIXTURE": "admixture",
+    "MEASURED_RESULT": "measure result",
+    "MEMO": "Memo",
+    "SLUMP": "Slump",
+    "CONCRETE_TEMP": "concrete temp",
+    "DESIGN_VOLUME": "Designd Vol",
+    "MASS_OF_UNIT_VOLUME": "M. of Unit Vol",
+    "UNIT_CONTENT_OF_WATER": "W content",
+    "PRINT": "print",
+    "DELETE": "delete",
+    "UNIT": "unit",
+    "DESIGNED_AIR_CONTENT": "Designed Air",
+    "MEASUREMENT_SHIFT": "measurement shift",
+    "CEMENT_WET_DENSITY": "Wet density of C",
+
+    "MIX_TABLE": "mix table",
+    "NO_DATA": "no data",
+    "DATETIME": "datetime",
+
+    "COMPANY_MANAGEMENT": "company management",
+    "REFRESH": "refresh",
+    "REFRESHING": "refreshing",
+    "NEXT": "next",
+    "PREV": "prev",
+    "LIST": "list",
+    "ADD_NEW": "add new",
+
+    "THEORETICAL_VALUE": "theoretical value",
+    "SUBMIT": "submit",
+    "N_A": "N/A",
+
+    "DEVICE_NUMBER": "device number",
+    "LOGIN": "login",
+    "LOGIN_ADMIN": "admin login",
+    "ADMIN": "admin",
+    "EMAIL": "email",
+    "PASS": "pass",
+    "FORGOT_YOUR_PASS": "forgot you pass?",    
+    "ALREADY_HAVE_AN_ACCOUNT": "already have an account.",
+    "SIGN_UP": "sign up",
+    "CONFIRM_PASSWORD": "confirm password",
+    "CLOSE": "close",
+    "FIND_YOUR_ACCOUNT": "find your account",
+    "FIND": "find",
+    "RESET_PASSWORD": "reset password",
+    "NEW_PASS": "new password(minimum 6)",
+    "CONFIRM_PASS": "confirm password",
+    "UPDATE_COMPLETE": "update complete",
+    "CONFIRM": "confirm",
+
+    "PRINTER_BLUETOOTH": "printer bluetooth",
+    "SCALE_BLUETOOTH": "scale bluetooth",
+    "AIRMETER_BLUETOOTH": "AirMeter bluetooth",
+
+    "SCALE_DISPLAY": "scale display",
+    "PRINTER_TEST": "printer test.",
+
+
+    "LANGUAGE_SETTINGS": "Language Settings",
+    "SENTENCE_FIRST": "Please select mixed registration first.",
+    "SENTENCE_SECOND": "Mixed registration entry is empty.",
+    "SENTENCE_THIRD": "Measurement completed item is empty.",
+    "SENTENCE_FORTH": "Added job name",
+    "SENTENCE_FIFTH": "Added contractor",
+    "SENTENCE_SIXTH": "Added site",
+    "SENTENCE_SEVENTH": "Deleted",
+
+    "TAB4": {
+        "AIR": {
+            "APPLY_BUTTON_1": "Place the 'vessel+concrete' on the scale and press the Apply button.",
+            "APPLY_BUTTON_2": "Place the 'vessel+concrete+water' on the scale and press the Apply button."
+        },
+        "AGGREGATE": {
+            "APPLY_BUTTON_1": "Place the 'vessel+aggregate' on the scale and press the Apply button.",
+            "APPLY_BUTTON_2": "Place the 'vessel+aggregate+water' on the scale and press the Apply button."
+        },
+        "CHECK": {
+            "APPLY_BUTTON_1": "Place the 'vessel+water' on the scale and press the Apply button."
+        },
+        "AIR_BUTTON": "Press the measurement button after the air test.",
+        "NO_MESSAGE": "No Message"
+    },
+
+    "TAB5": {
+        "PASS": {
+            "TITLE": "Change Password",
+            "OLD": "old pass",
+            "NEW": "new pass",
+            "RE": "re-enter pass",
+            "INPUTALL" : "Please enter all of inputs.",
+            "INCORRECT" : "New pass does not match."
+        },
+        "CHANGED": "Changed"
+
+    },
+
+    "DATE_CHECK": {
+        "TRUE": "Turned on time print",
+        "FALSE": "Turned off the time print."
+    },
+
+    "SUCCESS_PRINT": "Print Success!",
+    "CONNECT_PROBLEM": "There is a problem with the connection. Please try again!"
+}

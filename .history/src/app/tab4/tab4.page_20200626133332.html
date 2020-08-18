@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{"OTHER_MEASURE" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    
+    <ion-card (click)="presentAggregate()">
+      <ion-card-content>
+        <ion-icon name="podium"></ion-icon>
+          <ion-label>{{"AGGREGATE_DENSITY_MEASURE" | translate}}</ion-label>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card (click)="presentAir()">
+      <ion-card-content>
+        <ion-icon name="pulse"></ion-icon>
+        <ion-item lines="none" detail>
+          <ion-label>{{"AIR_CONTENT_MEASURE" | translate}}</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card (click)="presentAirCheck()">
+      <ion-card-content details>
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        <ion-item lines="none" detail>
+          <ion-label>{{"AIR_CONTENT_CHECK" | translate}}</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+</ion-content>

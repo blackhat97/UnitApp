@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.dymeter.unit" version="1.5.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.dymeter.unit" version="1.6.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>단위수량</name>
     <description>단위수량 앱</description>
     <author email="dymeteriot@gmail.com" href="http://dymeter.com/">대윤계기산업(주)</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.1.19:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -114,5 +114,6 @@
     <plugin name="cordova-plugin-file-transfer" spec="1.7.1" />
     <plugin name="cordova-plugin-document-viewer" spec="0.9.11" />
     <plugin name="cordova-plugin-screen-orientation" spec="3.0.2" />
+    <allow-navigation href="http://192.168.1.19:8100" sessionid="f22acc82" />
     <engine name="android" spec="7.1.4" />
 </widget>
