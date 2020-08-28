@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">{{"CLOSE" | translate}}</ion-button>
+    </ion-buttons>
+    <ion-title>{{"MIX_INPUT" | translate}}</ion-title>
+    <ion-buttons slot="end">
+        <ion-button (click)="goList()">
+            {{"LIST" | translate}}
+        </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-router-outlet></ion-router-outlet>
+</ion-content>
+d

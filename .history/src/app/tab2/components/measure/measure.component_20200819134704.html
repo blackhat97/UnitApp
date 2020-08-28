@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="dismiss()">{{"CLOSE" | translate}}</ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "MEASURE" | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="no-scroll">
+
+  <div slot="fixed">
+    <ion-card (click)="presentExpand()" *ngFor="let mix of mixs">
+      <ion-row>
+        <ion-col size="3">{{ "JOB_NAME" | translate }}</ion-col>
+        <ion-col>{{ mix.cname }}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3">{{ "CONTRACTOR" | translate }}</ion-col>
+        <ion-col>{{ mix.ct_name }}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3">{{ "SITE_NAME" | translate }}</ion-col>
+        <ion-col>{{ mix.sname }}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3">{{ "MIX_NAME" | translate }}</ion-col>
+        <ion-col>{{ mix.mixnum }}</ion-col>
+      </ion-row> 
+    </ion-card>
+    <form [formGroup]="form">  
+        <ion-list>
+          <ion-item-divider>
+            {{ "INPUT_DATA" | translate }}
+          </ion-item-divider>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-text position="stack" class='fixedLabel'>{{ "SLUMP" | translate }}</ion-text>
+                <ion-input formControlName="slump" placeholder="(mm)" type="number"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-text position="fixed" class='fixedLabel'>{{ "CONCRETE_TEMP" | translate }}</ion-text>
+                <ion-input formControlName="temp" placeholder="(°C)" type="number"></ion-input>
+              </ion-item>        
+            </ion-col>
+          </ion-row>
+
+          <ion-item>
+            <ion-label position="stack" class='fixedLabel'>{{ "VESSEL_PLUS_CONCRETE" | translate }}</ion-label>
+            <ion-input name="concrete" (ionFocus)="onEvent($event)" formControlName="concrete" placeholder="(g)" type="number" [value]="inputs[0]" ></ion-input>
+            <ion-button color="slackSub" (click)="apply()">{{ "APPLY" | translate }}</ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stack" class='fixedLabel'>{{ "VESSEL_PLUS_CONCRETE_PLUS_WATER" | translate }}</ion-label>
+            <ion-input name="water" (ionFocus)="onEvent($event)" formControlName="water" placeholder="(g)" type="number" [value]="inputs[1]" #modelInput2 ></ion-input>
+            <ion-button color="slackSub" (click)="apply2()">{{ "APPLY" | translate }}</ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stack" class='fixedLabel'>{{ "INITIAL_PRESSURE" | translate }}</ion-label>
+            <ion-input name="iPressure" (ionFocus)="onEvent($event)" formControlName="iPressure" placeholder="(kPa)" type="text" [value]="pressure[0]" #modelInput3 ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stack" class='fixedLabel'>{{ "EQUILIBRIUM_PRESSURE" | translate }}</ion-label>
+            <ion-input name="ePressure" (ionFocus)="onEvent($event)" formControlName="ePressure" placeholder="(kPa)" type="text" [value]="pressure[1]" ></ion-input>
+          </ion-item>
+          <ion-item lines="none" text-center>
+              <ion-label color="primary" class="g-text"><b>{{realtime}} g</b></ion-label>
+          </ion-item>
+        </ion-list>
+      <ion-button color="slackSub" expand="full" (click)="presentResult()" [disabled]="!form.valid">{{"MEASURED_RESULT" | translate}}</ion-button>
+      </form>
+  </div>
+  
+</ion-content>  

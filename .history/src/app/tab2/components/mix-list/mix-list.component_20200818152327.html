@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/app/tabs/tab1']" routerDirection="backward">뒤로</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/app/register']" routerDirection="forward">추가</ion-button>
+    </ion-buttons>
+    <ion-title>{{"VIEW_ALL_1" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+      <ion-card *ngFor="let mix of mixs; let i = index">
+        <ion-card-header>
+          <ion-row>
+            <ion-col size="8">
+              <ion-card-subtitle>{{ mix.mixnum }}</ion-card-subtitle>
+            </ion-col>
+          </ion-row>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item (click)="presentEditMix(mix.id)" lines="none" detail>          
+              {{ mix.cname }}<br />
+              {{ mix.ct_name }}<br />
+              {{ mix.sname }}<br />
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  
+</ion-content>
